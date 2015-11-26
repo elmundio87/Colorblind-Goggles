@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		48DA8FB31C07C72500D5A4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */; };
+		48DA8FB51C07C72500D5A4C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FB41C07C72500D5A4C7 /* ViewController.swift */; };
+		48DA8FB81C07C72500D5A4C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DA8FB61C07C72500D5A4C7 /* Main.storyboard */; };
+		48DA8FBA1C07C72500D5A4C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48DA8FB91C07C72500D5A4C7 /* Assets.xcassets */; };
+		48DA8FBD1C07C72500D5A4C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DA8FBB1C07C72500D5A4C7 /* LaunchScreen.storyboard */; };
+		48DA8FC81C07C72500D5A4C7 /* Colorblind_GogglesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FC71C07C72500D5A4C7 /* Colorblind_GogglesTests.swift */; };
+		48DA8FD31C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48DA8FC41C07C72500D5A4C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48DA8FA71C07C72400D5A4C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48DA8FAE1C07C72400D5A4C7;
+			remoteInfo = "Colorblind Goggles";
+		};
+		48DA8FCF1C07C72500D5A4C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48DA8FA71C07C72400D5A4C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48DA8FAE1C07C72400D5A4C7;
+			remoteInfo = "Colorblind Goggles";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		48DA8FAF1C07C72400D5A4C7 /* Colorblind Goggles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Colorblind Goggles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		48DA8FB41C07C72500D5A4C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		48DA8FB71C07C72500D5A4C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		48DA8FB91C07C72500D5A4C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		48DA8FBC1C07C72500D5A4C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		48DA8FBE1C07C72500D5A4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48DA8FC31C07C72500D5A4C7 /* Colorblind GogglesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Colorblind GogglesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		48DA8FC71C07C72500D5A4C7 /* Colorblind_GogglesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorblind_GogglesTests.swift; sourceTree = "<group>"; };
+		48DA8FC91C07C72500D5A4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48DA8FCE1C07C72500D5A4C7 /* Colorblind GogglesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Colorblind GogglesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorblind_GogglesUITests.swift; sourceTree = "<group>"; };
+		48DA8FD41C07C72500D5A4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		48DA8FAC1C07C72400D5A4C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DA8FC01C07C72500D5A4C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DA8FCB1C07C72500D5A4C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48DA8FA61C07C72400D5A4C7 = {
+			isa = PBXGroup;
+			children = (
+				48DA8FB11C07C72500D5A4C7 /* Colorblind Goggles */,
+				48DA8FC61C07C72500D5A4C7 /* Colorblind GogglesTests */,
+				48DA8FD11C07C72500D5A4C7 /* Colorblind GogglesUITests */,
+				48DA8FB01C07C72400D5A4C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		48DA8FB01C07C72400D5A4C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48DA8FAF1C07C72400D5A4C7 /* Colorblind Goggles.app */,
+				48DA8FC31C07C72500D5A4C7 /* Colorblind GogglesTests.xctest */,
+				48DA8FCE1C07C72500D5A4C7 /* Colorblind GogglesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		48DA8FB11C07C72500D5A4C7 /* Colorblind Goggles */ = {
+			isa = PBXGroup;
+			children = (
+				48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */,
+				48DA8FB41C07C72500D5A4C7 /* ViewController.swift */,
+				48DA8FB61C07C72500D5A4C7 /* Main.storyboard */,
+				48DA8FB91C07C72500D5A4C7 /* Assets.xcassets */,
+				48DA8FBB1C07C72500D5A4C7 /* LaunchScreen.storyboard */,
+				48DA8FBE1C07C72500D5A4C7 /* Info.plist */,
+			);
+			path = "Colorblind Goggles";
+			sourceTree = "<group>";
+		};
+		48DA8FC61C07C72500D5A4C7 /* Colorblind GogglesTests */ = {
+			isa = PBXGroup;
+			children = (
+				48DA8FC71C07C72500D5A4C7 /* Colorblind_GogglesTests.swift */,
+				48DA8FC91C07C72500D5A4C7 /* Info.plist */,
+			);
+			path = "Colorblind GogglesTests";
+			sourceTree = "<group>";
+		};
+		48DA8FD11C07C72500D5A4C7 /* Colorblind GogglesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */,
+				48DA8FD41C07C72500D5A4C7 /* Info.plist */,
+			);
+			path = "Colorblind GogglesUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		48DA8FAE1C07C72400D5A4C7 /* Colorblind Goggles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48DA8FD71C07C72500D5A4C7 /* Build configuration list for PBXNativeTarget "Colorblind Goggles" */;
+			buildPhases = (
+				48DA8FAB1C07C72400D5A4C7 /* Sources */,
+				48DA8FAC1C07C72400D5A4C7 /* Frameworks */,
+				48DA8FAD1C07C72400D5A4C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Colorblind Goggles";
+			productName = "Colorblind Goggles";
+			productReference = 48DA8FAF1C07C72400D5A4C7 /* Colorblind Goggles.app */;
+			productType = "com.apple.product-type.application";
+		};
+		48DA8FC21C07C72500D5A4C7 /* Colorblind GogglesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48DA8FDA1C07C72500D5A4C7 /* Build configuration list for PBXNativeTarget "Colorblind GogglesTests" */;
+			buildPhases = (
+				48DA8FBF1C07C72500D5A4C7 /* Sources */,
+				48DA8FC01C07C72500D5A4C7 /* Frameworks */,
+				48DA8FC11C07C72500D5A4C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48DA8FC51C07C72500D5A4C7 /* PBXTargetDependency */,
+			);
+			name = "Colorblind GogglesTests";
+			productName = "Colorblind GogglesTests";
+			productReference = 48DA8FC31C07C72500D5A4C7 /* Colorblind GogglesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		48DA8FCD1C07C72500D5A4C7 /* Colorblind GogglesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48DA8FDD1C07C72500D5A4C7 /* Build configuration list for PBXNativeTarget "Colorblind GogglesUITests" */;
+			buildPhases = (
+				48DA8FCA1C07C72500D5A4C7 /* Sources */,
+				48DA8FCB1C07C72500D5A4C7 /* Frameworks */,
+				48DA8FCC1C07C72500D5A4C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48DA8FD01C07C72500D5A4C7 /* PBXTargetDependency */,
+			);
+			name = "Colorblind GogglesUITests";
+			productName = "Colorblind GogglesUITests";
+			productReference = 48DA8FCE1C07C72500D5A4C7 /* Colorblind GogglesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		48DA8FA71C07C72400D5A4C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Edmund Dipple";
+				TargetAttributes = {
+					48DA8FAE1C07C72400D5A4C7 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					48DA8FC21C07C72500D5A4C7 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 48DA8FAE1C07C72400D5A4C7;
+					};
+					48DA8FCD1C07C72500D5A4C7 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 48DA8FAE1C07C72400D5A4C7;
+					};
+				};
+			};
+			buildConfigurationList = 48DA8FAA1C07C72400D5A4C7 /* Build configuration list for PBXProject "Colorblind Goggles" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 48DA8FA61C07C72400D5A4C7;
+			productRefGroup = 48DA8FB01C07C72400D5A4C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				48DA8FAE1C07C72400D5A4C7 /* Colorblind Goggles */,
+				48DA8FC21C07C72500D5A4C7 /* Colorblind GogglesTests */,
+				48DA8FCD1C07C72500D5A4C7 /* Colorblind GogglesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		48DA8FAD1C07C72400D5A4C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48DA8FBD1C07C72500D5A4C7 /* LaunchScreen.storyboard in Resources */,
+				48DA8FBA1C07C72500D5A4C7 /* Assets.xcassets in Resources */,
+				48DA8FB81C07C72500D5A4C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DA8FC11C07C72500D5A4C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DA8FCC1C07C72500D5A4C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		48DA8FAB1C07C72400D5A4C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48DA8FB51C07C72500D5A4C7 /* ViewController.swift in Sources */,
+				48DA8FB31C07C72500D5A4C7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DA8FBF1C07C72500D5A4C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48DA8FC81C07C72500D5A4C7 /* Colorblind_GogglesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DA8FCA1C07C72500D5A4C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48DA8FD31C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48DA8FC51C07C72500D5A4C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48DA8FAE1C07C72400D5A4C7 /* Colorblind Goggles */;
+			targetProxy = 48DA8FC41C07C72500D5A4C7 /* PBXContainerItemProxy */;
+		};
+		48DA8FD01C07C72500D5A4C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48DA8FAE1C07C72400D5A4C7 /* Colorblind Goggles */;
+			targetProxy = 48DA8FCF1C07C72500D5A4C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		48DA8FB61C07C72500D5A4C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48DA8FB71C07C72500D5A4C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		48DA8FBB1C07C72500D5A4C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48DA8FBC1C07C72500D5A4C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		48DA8FD51C07C72500D5A4C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		48DA8FD61C07C72500D5A4C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		48DA8FD81C07C72500D5A4C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Colorblind Goggles/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-Goggles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		48DA8FD91C07C72500D5A4C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Colorblind Goggles/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-Goggles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		48DA8FDB1C07C72500D5A4C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Colorblind GogglesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-GogglesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Colorblind Goggles.app/Colorblind Goggles";
+			};
+			name = Debug;
+		};
+		48DA8FDC1C07C72500D5A4C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Colorblind GogglesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-GogglesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Colorblind Goggles.app/Colorblind Goggles";
+			};
+			name = Release;
+		};
+		48DA8FDE1C07C72500D5A4C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Colorblind GogglesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-GogglesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Colorblind Goggles";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		48DA8FDF1C07C72500D5A4C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Colorblind GogglesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-GogglesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Colorblind Goggles";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48DA8FAA1C07C72400D5A4C7 /* Build configuration list for PBXProject "Colorblind Goggles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48DA8FD51C07C72500D5A4C7 /* Debug */,
+				48DA8FD61C07C72500D5A4C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48DA8FD71C07C72500D5A4C7 /* Build configuration list for PBXNativeTarget "Colorblind Goggles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48DA8FD81C07C72500D5A4C7 /* Debug */,
+				48DA8FD91C07C72500D5A4C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		48DA8FDA1C07C72500D5A4C7 /* Build configuration list for PBXNativeTarget "Colorblind GogglesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48DA8FDB1C07C72500D5A4C7 /* Debug */,
+				48DA8FDC1C07C72500D5A4C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		48DA8FDD1C07C72500D5A4C7 /* Build configuration list for PBXNativeTarget "Colorblind GogglesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48DA8FDE1C07C72500D5A4C7 /* Debug */,
+				48DA8FDF1C07C72500D5A4C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 48DA8FA71C07C72400D5A4C7 /* Project object */;
+}

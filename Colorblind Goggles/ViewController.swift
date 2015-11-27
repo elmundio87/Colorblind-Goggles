@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPreset640x480, cameraPosition: .Back)
+        videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .Back)
         videoCamera!.outputImageOrientation = .Portrait;
         //filter = GPUImageFilter(fragmentShaderFromFile: "Protanopia")
         //filter = GPUImageFilter(fragmentShaderFromFile: "Deuteranopia")

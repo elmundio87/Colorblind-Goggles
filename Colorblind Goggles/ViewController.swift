@@ -47,7 +47,11 @@ class ViewController: UIViewController {
     
     func action(sender:UITapGestureRecognizer) {
         videoCamera?.stopCameraCapture()
-        cameraMagic(filterList[++filterListIndex])
+        filterListIndex = ++filterListIndex
+        if(filterListIndex >= filterList.count){
+            filterListIndex = 0
+        }
+        cameraMagic(filterList[filterListIndex])
     }
     
     func cameraMagic(f: String){

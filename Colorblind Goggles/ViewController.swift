@@ -15,26 +15,23 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
+    var filteredVideoView:GPUImageView?
     var videoCamera:GPUImageVideoCamera?
     var filter:GPUImageFilter?
-
+    
+    var filterList = ["Normal","Protanopia","Deuteranopia","Tritanopia","Mono"]
+    var filterListIndex = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .Back)
-        videoCamera!.outputImageOrientation = .Portrait;
-        //filter = GPUImageFilter(fragmentShaderFromFile: "Protanopia")
-        //filter = GPUImageFilter(fragmentShaderFromFile: "Deuteranopia")
-        //filter = GPUImageFilter(fragmentShaderFromFile: "Tritanopia")
-        filter = GPUImageFilter(fragmentShaderFromFile: "Mono")
+        filteredVideoView = GPUImageView(frame:CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height))
+        let touch = UITapGestureRecognizer(target:self, action:"action:")
+        filteredVideoView!.addGestureRecognizer(touch)
+        view.addSubview(filteredVideoView!)
         
-        
-        videoCamera?.addTarget(filter)
-        var filteredVideoView: GPUImageView  = GPUImageView(frame:CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height))
-        view.addSubview(filteredVideoView)
-        filter?.addTarget(filteredVideoView)
-        videoCamera?.startCameraCapture()
+        cameraMagic(filterList[filterListIndex])
         
     }
     
@@ -46,6 +43,28 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func action(sender:UITapGestureRecognizer) {
+        videoCamera?.stopCameraCapture()
+        cameraMagic(filterList[++filterListIndex])
+    }
+    
+    func cameraMagic(f: String){
+        videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .Back)
+        videoCamera!.outputImageOrientation = .Portrait
+        filter = GPUImageFilter(fragmentShaderFromFile: f)
+        //filter = GPUImageFilter(fragmentShaderFromFile: "Protanopia")
+        //filter = GPUImageFilter(fragmentShaderFromFile: "Deuteranopia")
+        //filter = GPUImageFilter(fragmentShaderFromFile: "Tritanopia")
+        //filter = GPUImageFilter(fragmentShaderFromFile: "Mono")
+        
+        
+        videoCamera?.addTarget(filter)
+        
+        
+        filter?.addTarget(filteredVideoView)
+        videoCamera?.startCameraCapture()
     }
 
     

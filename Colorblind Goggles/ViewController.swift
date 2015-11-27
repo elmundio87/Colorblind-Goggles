@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPreset640x480, cameraPosition: .Back)
         videoCamera!.outputImageOrientation = .Portrait;
-        filter = GPUImageFilter(fragmentShaderFromFile: "CustomShader")
+        filter = GPUImageFilter(fragmentShaderFromFile: "Protanopia")
         videoCamera?.addTarget(filter)
         var filteredVideoView: GPUImageView  = GPUImageView(frame:CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height))
         view.addSubview(filteredVideoView)

@@ -17,22 +17,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-wE-Wrr">
-                                <rect key="frame" x="75" y="73" width="455" height="463"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQG-Ww-O1H">
+                                <rect key="frame" x="0.0" y="530" width="600" height="60"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="P1V-dV-pgO">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Normal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5J-wU-pbC">
+                                            <rect key="frame" x="97" y="20" width="224" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="s5J-wU-pbC" firstAttribute="centerX" secondItem="P1V-dV-pgO" secondAttribute="centerX" id="2OU-ee-7KP"/>
+                                        <constraint firstItem="s5J-wU-pbC" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="kv3-gF-pXy"/>
+                                    </constraints>
+                                </view>
                                 <animations/>
-                            </imageView>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cdo-Wy-8xN">
+                                <rect key="frame" x="0.0" y="399" width="600" height="201"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="deZ-FT-bUW">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAL-RP-KLw">
+                                            <rect key="frame" x="0.0" y="36" width="600" height="173"/>
+                                            <animations/>
+                                        </pickerView>
+                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etk-l4-YfV">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <animations/>
+                                            <items>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="k2X-7O-9ah"/>
+                                                <barButtonItem title="Done" id="H9b-IP-2IV">
+                                                    <connections>
+                                                        <action selector="filterPickerDoneButtonClick:" destination="BYZ-38-t0r" id="JNd-QK-kcE"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </items>
+                                            <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </toolbar>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="Etk-l4-YfV" firstAttribute="width" secondItem="deZ-FT-bUW" secondAttribute="width" id="2jx-Bn-sHu"/>
+                                        <constraint firstItem="EAL-RP-KLw" firstAttribute="centerX" secondItem="deZ-FT-bUW" secondAttribute="centerX" id="9w1-bF-HVg"/>
+                                        <constraint firstItem="EAL-RP-KLw" firstAttribute="width" secondItem="deZ-FT-bUW" secondAttribute="width" id="DuA-Vb-a3w"/>
+                                        <constraint firstItem="Etk-l4-YfV" firstAttribute="top" secondItem="deZ-FT-bUW" secondAttribute="top" id="kgM-sc-1zO"/>
+                                        <constraint firstItem="Etk-l4-YfV" firstAttribute="centerX" secondItem="deZ-FT-bUW" secondAttribute="centerX" id="pal-Ms-uCF"/>
+                                        <constraint firstAttribute="bottom" secondItem="EAL-RP-KLw" secondAttribute="bottom" id="zjz-Sr-tke"/>
+                                    </constraints>
+                                </view>
+                                <animations/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Qqa-wE-Wrr" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="CMI-EW-8pz"/>
-                            <constraint firstItem="Qqa-wE-Wrr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="CUT-yv-Zv1"/>
-                            <constraint firstItem="Qqa-wE-Wrr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JMp-Ir-GCA"/>
-                            <constraint firstItem="Qqa-wE-Wrr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U0I-wv-qFe"/>
+                            <constraint firstItem="Cdo-Wy-8xN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="5ta-yR-VFm"/>
+                            <constraint firstItem="aQG-Ww-O1H" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="6Yq-Dj-EPm"/>
+                            <constraint firstItem="Cdo-Wy-8xN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CGt-wp-tgM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aQG-Ww-O1H" secondAttribute="bottom" id="T66-vU-ZFH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cdo-Wy-8xN" secondAttribute="bottom" id="bX0-En-CsT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cdo-Wy-8xN" secondAttribute="bottom" id="rUP-Ho-RE2"/>
+                            <constraint firstItem="aQG-Ww-O1H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ylu-6i-6vS"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="imageView" destination="Qqa-wE-Wrr" id="pUY-cP-8qv"/>
+                        <outlet property="bottomBar" destination="aQG-Ww-O1H" id="eZh-bi-TIE"/>
+                        <outlet property="colourblindLabel" destination="s5J-wU-pbC" id="V0t-UN-WvK"/>
+                        <outlet property="filterPicker" destination="EAL-RP-KLw" id="s7x-Yg-pel"/>
+                        <outlet property="filterPickerContainer" destination="Cdo-Wy-8xN" id="cij-Qc-81t"/>
+                        <outlet property="filterPickerDoneButton" destination="H9b-IP-2IV" id="PxR-wd-cuG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -14,6 +14,9 @@
 		48DA8FBD1C07C72500D5A4C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DA8FBB1C07C72500D5A4C7 /* LaunchScreen.storyboard */; };
 		48DA8FC81C07C72500D5A4C7 /* Colorblind_GogglesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FC71C07C72500D5A4C7 /* Colorblind_GogglesTests.swift */; };
 		48DA8FD31C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */; };
+		48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */; };
+		48DA8FE31C07D3E400D5A4C7 /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DA8FE21C07D3E400D5A4C7 /* test_image.jpg */; };
+		48DA8FE51C07D67100D5A4C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		48DA8FCE1C07C72500D5A4C7 /* Colorblind GogglesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Colorblind GogglesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorblind_GogglesUITests.swift; sourceTree = "<group>"; };
 		48DA8FD41C07C72500D5A4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorblindFilter.swift; sourceTree = "<group>"; };
+		48DA8FE21C07D3E400D5A4C7 /* test_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_image.jpg; sourceTree = "<group>"; };
+		48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +103,15 @@
 		48DA8FB11C07C72500D5A4C7 /* Colorblind Goggles */ = {
 			isa = PBXGroup;
 			children = (
+				48DA8FE21C07D3E400D5A4C7 /* test_image.jpg */,
 				48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */,
 				48DA8FB41C07C72500D5A4C7 /* ViewController.swift */,
 				48DA8FB61C07C72500D5A4C7 /* Main.storyboard */,
 				48DA8FB91C07C72500D5A4C7 /* Assets.xcassets */,
 				48DA8FBB1C07C72500D5A4C7 /* LaunchScreen.storyboard */,
 				48DA8FBE1C07C72500D5A4C7 /* Info.plist */,
+				48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */,
+				48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */,
 			);
 			path = "Colorblind Goggles";
 			sourceTree = "<group>";
@@ -232,6 +241,7 @@
 				48DA8FBD1C07C72500D5A4C7 /* LaunchScreen.storyboard in Resources */,
 				48DA8FBA1C07C72500D5A4C7 /* Assets.xcassets in Resources */,
 				48DA8FB81C07C72500D5A4C7 /* Main.storyboard in Resources */,
+				48DA8FE31C07D3E400D5A4C7 /* test_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				48DA8FB51C07C72500D5A4C7 /* ViewController.swift in Sources */,
+				48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */,
 				48DA8FB31C07C72500D5A4C7 /* AppDelegate.swift in Sources */,
+				48DA8FE51C07D67100D5A4C7 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

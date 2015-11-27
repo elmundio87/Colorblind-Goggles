@@ -21,9 +21,24 @@ class Colorblind_GogglesTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testRGBShouldNotOutputInvalidValues() {
+        
+        let filter: ColourblindFilter = ColourblindFilter()
+        
+        for inR in 0...255
+        {
+            for inG in 0...255
+            {
+                for inB in 0...255
+                {
+                    let (r,g,b) = filter.FilterColour(R: Double(inR), G: Double(inG), B: Double(inB), f: ColourblindFilter.FilterType.Monochromatic)
+                    XCTAssert(r <= 255 && r >= 0)
+                    XCTAssert(g <= 255 && g >= 0)
+                    XCTAssert(b <= 255 && b >= 0)
+                }
+            }
+        }
+        
     }
     
     func testPerformanceExample() {

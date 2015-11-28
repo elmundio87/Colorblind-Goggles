@@ -103,6 +103,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             filteredVideoView3?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
             filteredVideoView4?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
             filteredVideoView5?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
+            filtersOnScreen = 1
         }
        
         
@@ -152,9 +153,21 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
         videoCamera?.startCameraCapture()
         
+        let screenPlus = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+        let screenPlus2 = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+        let screenPlus3 = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+        let screenPlus4 = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+        let screenPlus5 = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+        
         let touch = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+        
         let touch2 = UITapGestureRecognizer(target:self, action:"pickerButtonTouchUpInside:")
-        filteredVideoView!.addGestureRecognizer(touch)
+        filteredVideoView!.addGestureRecognizer(screenPlus)
+        filteredVideoView2!.addGestureRecognizer(screenPlus2)
+        filteredVideoView3!.addGestureRecognizer(screenPlus3)
+        filteredVideoView4!.addGestureRecognizer(screenPlus4)
+        filteredVideoView5!.addGestureRecognizer(screenPlus5)
+
         bottomBar.addGestureRecognizer(touch2)
         
         view.addSubview(filteredVideoView!)

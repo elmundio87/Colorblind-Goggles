@@ -22,8 +22,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     
     var filteredVideoView:GPUImageView?
+    var filteredVideoView2:GPUImageView?
+    var filteredVideoView3:GPUImageView?
+    var filteredVideoView4:GPUImageView?
     var videoCamera:GPUImageVideoCamera?
     var filter:GPUImageFilter?
+    var filter2:GPUImageFilter?
+    var filter3:GPUImageFilter?
+    var filter4:GPUImageFilter?
+    
     
     @IBOutlet weak var bottomBar: UIVisualEffectView!
     
@@ -34,14 +41,20 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        filteredVideoView = GPUImageView(frame:CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height))
+        filteredVideoView = GPUImageView(frame:CGRectMake(0.0, 0.0, view.bounds.width/2, view.bounds.height/2))
+        filteredVideoView2 = GPUImageView(frame:CGRectMake(view.bounds.width/2, 0.0, view.bounds.width/2, view.bounds.height/2))
+        filteredVideoView3 = GPUImageView(frame:CGRectMake(0.0, view.bounds.height/2, view.bounds.width/2, view.bounds.height/2))
+        filteredVideoView4 = GPUImageView(frame:CGRectMake(view.bounds.width/2, view.bounds.height/2, view.bounds.width/2, view.bounds.height/2))
         let touch = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
         let touch2 = UITapGestureRecognizer(target:self, action:"pickerButtonTouchUpInside:")
         filteredVideoView!.addGestureRecognizer(touch)
         bottomBar.addGestureRecognizer(touch2)
         view.addSubview(filteredVideoView!)
+        view.addSubview(filteredVideoView2!)
+        view.addSubview(filteredVideoView3!)
+        view.addSubview(filteredVideoView4!)
         
-        cameraMagic(filterList[filterListIndex])
+        cameraMagic()
         
         filterPicker.delegate = self
         filterPicker.dataSource = self
@@ -62,12 +75,24 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         // Dispose of any resources that can be recreated.
     }
     
-    func cameraMagic(f: String){
+    func cameraMagic(){
         videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .Back)
         videoCamera!.outputImageOrientation = .Portrait
-        filter = GPUImageFilter(fragmentShaderFromFile: f)
+        filter = GPUImageFilter(fragmentShaderFromFile: "Normal")
+        filter2 = GPUImageFilter(fragmentShaderFromFile: "Protanopia")
+        filter3 = GPUImageFilter(fragmentShaderFromFile: "Deuteranopia")
+        filter4 = GPUImageFilter(fragmentShaderFromFile: "Tritanopia")
+        
         videoCamera?.addTarget(filter)
+        videoCamera?.addTarget(filter2)
+        videoCamera?.addTarget(filter3)
+        videoCamera?.addTarget(filter4)
+        
         filter?.addTarget(filteredVideoView)
+        filter2?.addTarget(filteredVideoView2)
+        filter3?.addTarget(filteredVideoView3)
+        filter4?.addTarget(filteredVideoView4)
+    
         videoCamera?.startCameraCapture()
     }
 
@@ -91,12 +116,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        videoCamera?.stopCameraCapture()
-        cameraMagic(filterList[row])
-        colourblindLabel.text = filterList[row]
-    }
-    
+        
     @IBAction func filterPickerDoneButtonClick(sender: AnyObject) {
         print("lol")
         filterPickerContainer.hidden = true

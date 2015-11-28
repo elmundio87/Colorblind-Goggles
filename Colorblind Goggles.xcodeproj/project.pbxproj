@@ -15,6 +15,7 @@
 		481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C31C08C5930058F708 /* Tritanopia.fsh */; };
 		481968C61C08C5AD0058F708 /* Mono.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C51C08C5AD0058F708 /* Mono.fsh */; };
 		481968C81C08C9790058F708 /* Normal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C71C08C9790058F708 /* Normal.fsh */; };
+		4819691B1C09385A0058F708 /* MultiSelectSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4819691A1C09385A0058F708 /* MultiSelectSegmentedControl.m */; };
 		48DA8FB31C07C72500D5A4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */; };
 		48DA8FB51C07C72500D5A4C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FB41C07C72500D5A4C7 /* ViewController.swift */; };
 		48DA8FB81C07C72500D5A4C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DA8FB61C07C72500D5A4C7 /* Main.storyboard */; };
@@ -86,6 +87,9 @@
 		481968C31C08C5930058F708 /* Tritanopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Tritanopia.fsh; sourceTree = "<group>"; };
 		481968C51C08C5AD0058F708 /* Mono.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Mono.fsh; sourceTree = "<group>"; };
 		481968C71C08C9790058F708 /* Normal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Normal.fsh; sourceTree = "<group>"; };
+		481969191C09385A0058F708 /* Colorblind Goggles-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Colorblind Goggles-Bridging-Header.h"; sourceTree = "<group>"; };
+		4819691A1C09385A0058F708 /* MultiSelectSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectSegmentedControl.m; sourceTree = "<group>"; };
+		4819691C1C0938810058F708 /* MultiSelectSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiSelectSegmentedControl.h; sourceTree = "<group>"; };
 		48DA8FAF1C07C72400D5A4C7 /* Colorblind Goggles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Colorblind Goggles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48DA8FB41C07C72500D5A4C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,9 @@
 				481968C31C08C5930058F708 /* Tritanopia.fsh */,
 				481968C51C08C5AD0058F708 /* Mono.fsh */,
 				481968C71C08C9790058F708 /* Normal.fsh */,
+				4819691C1C0938810058F708 /* MultiSelectSegmentedControl.h */,
+				4819691A1C09385A0058F708 /* MultiSelectSegmentedControl.m */,
+				481969191C09385A0058F708 /* Colorblind Goggles-Bridging-Header.h */,
 			);
 			path = "Colorblind Goggles";
 			sourceTree = "<group>";
@@ -363,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4819691B1C09385A0058F708 /* MultiSelectSegmentedControl.m in Sources */,
 				48DA8FB51C07C72500D5A4C7 /* ViewController.swift in Sources */,
 				48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */,
 				48DA8FB31C07C72500D5A4C7 /* AppDelegate.swift in Sources */,
@@ -513,10 +521,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Colorblind Goggles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-Goggles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Colorblind Goggles/Colorblind Goggles-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -524,10 +535,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Colorblind Goggles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-Goggles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Colorblind Goggles/Colorblind Goggles-Bridging-Header.h";
 			};
 			name = Release;
 		};

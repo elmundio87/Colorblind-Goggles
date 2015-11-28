@@ -21,24 +21,17 @@ class Colorblind_GogglesTests: XCTestCase {
         super.tearDown()
     }
     
-    func testRGBShouldNotOutputInvalidValues() {
+    func testGetShaderName() {
+        let filterList: [FilterStruct] = [FilterStruct(name: "Normal", shortName: "Norm", shader: "Normal"),
+            FilterStruct(name:"Protanopia", shortName: "Pro", shader: "Protanopia"),
+            FilterStruct(name:"Deuteranopia", shortName: "Deu", shader: "Deuteranopia"),
+            FilterStruct(name:"Tritanopia", shortName:  "Tri", shader: "Tritanopia"),
+            FilterStruct(name:"Monochromatic", shortName: "Mono", shader: "Mono")]
         
-        let filter: ColourblindFilter = ColourblindFilter()
+        let shaderName = ViewController().getShaderName("Pro",filterlist: filterList)
+        XCTAssert( shaderName == "Protanopia", shaderName)
         
-        for inR in 0...255
-        {
-            for inG in 0...255
-            {
-                for inB in 0...255
-                {
-                    let (r,g,b) = filter.FilterColour(R: Double(inR), G: Double(inG), B: Double(inB), f: ColourblindFilter.FilterType.Monochromatic)
-                    XCTAssert(r <= 255 && r >= 0)
-                    XCTAssert(g <= 255 && g >= 0)
-                    XCTAssert(b <= 255 && b >= 0)
-                }
-            }
-        }
-        
+              
     }
     
     func testPerformanceExample() {

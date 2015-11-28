@@ -11,54 +11,45 @@ import AVFoundation
 import AssetsLibrary
 import GPUImage
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate  {
+struct FilterStruct {
+    var name: String
+    var shortName: String
+    var shader: String
+}
 
+class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerButton: UIButton!
-    @IBOutlet weak var filterPicker: UIPickerView!
-    @IBOutlet weak var filterPickerContainer: UIVisualEffectView!
-    @IBOutlet weak var filterPickerDoneButton: UIBarButtonItem!
     @IBOutlet weak var colourblindLabel: UILabel!
-
     
-    var filteredVideoView:GPUImageView?
-    var filteredVideoView2:GPUImageView?
-    var filteredVideoView3:GPUImageView?
-    var filteredVideoView4:GPUImageView?
-    var filteredVideoView5:GPUImageView?
+    var activeFilters:[String] = ["Norm"]
     
+    var filteredVideoViews:[GPUImageView] = []
+    var filters:[GPUImageFilter] = []
     var videoCamera:GPUImageVideoCamera?
-    var filter:GPUImageFilter?
-    var filter2:GPUImageFilter?
-    var filter3:GPUImageFilter?
-    var filter4:GPUImageFilter?
-    var filter5:GPUImageFilter?
+   
     
-    
-    
+    @IBOutlet weak var segment: MultiSelectSegmentedControl!
     @IBOutlet weak var bottomBar: UIVisualEffectView!
     
-    var filterList = ["Normal","Protanopia","Deuteranopia","Tritanopia","Mono"]
+    
+    
+    var filterList: [FilterStruct] = [FilterStruct(name: "Normal", shortName: "Norm", shader: "Normal"),
+        FilterStruct(name:"Protanopia", shortName: "Pro", shader: "Protanopia"),
+        FilterStruct(name:"Deuteranopia", shortName: "Deu", shader: "Deuteranopia"),
+        FilterStruct(name:"Tritanopia", shortName:  "Tri", shader: "Tritanopia"),
+        FilterStruct(name:"Monochromatic", shortName: "Mono", shader: "Mono")]
+    
     var filterListIndex = 0
     var filtersOnScreen = 1
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
        
-        
-        filteredVideoView = GPUImageView(frame:CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height))
-        filteredVideoView2 = GPUImageView(frame:CGRectMake(0.0, 0.0, 0.0, 0.0))
-        filteredVideoView3 = GPUImageView(frame:CGRectMake(0.0, 0.0, 0.0, 0.0))
-        filteredVideoView4 = GPUImageView(frame:CGRectMake(0.0, 0.0, 0.0, 0.0))
-        filteredVideoView5 = GPUImageView(frame:CGRectMake(0.0, 0.0, 0.0, 0.0))
-        
-        fitViewsOntoScreen()
         cameraMagic()
-        
-        filterPicker.delegate = self
-        filterPicker.dataSource = self
+        fitViewsOntoScreen()
         
     }
     
@@ -66,44 +57,29 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         switch filtersOnScreen{
         case  1:
-            filteredVideoView?.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
-            filteredVideoView2?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filteredVideoView3?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filteredVideoView4?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filteredVideoView5?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            
+            filteredVideoViews[0].frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
         case  2:
-            filteredVideoView?.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
-            filteredVideoView2?.frame = CGRectMake(0.0, view.bounds.height/2, view.bounds.width, view.bounds.height)
-            filteredVideoView3?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filteredVideoView4?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filteredVideoView5?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
+            filteredVideoViews[0].frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+            filteredVideoViews[1].frame = CGRectMake(0.0, view.bounds.height/2, view.bounds.width, view.bounds.height)
         case  3:
-            filteredVideoView?.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
-            filteredVideoView2?.frame = CGRectMake(0.0, view.bounds.height/3, view.bounds.width, view.bounds.height)
-            filteredVideoView3?.frame = CGRectMake(0.0, view.bounds.height/3 * 2, view.bounds.width, view.bounds.height)
-            filteredVideoView4?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filteredVideoView5?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
+            filteredVideoViews[0].frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+            filteredVideoViews[1].frame = CGRectMake(0.0, view.bounds.height/3, view.bounds.width, view.bounds.height)
+            filteredVideoViews[2].frame = CGRectMake(0.0, view.bounds.height/3 * 2, view.bounds.width, view.bounds.height)
         case 4:
-            filteredVideoView?.frame = CGRectMake(0.0, 0.0, view.bounds.width/2, view.bounds.height/2)
-            filteredVideoView2?.frame = CGRectMake(view.bounds.width/2, 0.0, view.bounds.width/2, view.bounds.height/2)
-            filteredVideoView3?.frame = CGRectMake(0.0, view.bounds.height/2, view.bounds.width/2, view.bounds.height/2)
-            filteredVideoView4?.frame = CGRectMake(view.bounds.width/2, view.bounds.height/2, view.bounds.width/2, view.bounds.height/2)
-            filteredVideoView5?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
+            filteredVideoViews[0].frame = CGRectMake(0.0, 0.0, view.bounds.width/2, view.bounds.height/2)
+            filteredVideoViews[1].frame = CGRectMake(view.bounds.width/2, 0.0, view.bounds.width/2, view.bounds.height/2)
+            filteredVideoViews[2].frame = CGRectMake(0.0, view.bounds.height/2, view.bounds.width/2, view.bounds.height/2)
+            filteredVideoViews[3].frame = CGRectMake(view.bounds.width/2, view.bounds.height/2, view.bounds.width/2, view.bounds.height/2)
         case 5:
-            filteredVideoView?.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
-            filteredVideoView2?.frame = CGRectMake(0.0, view.bounds.height/5, view.bounds.width, view.bounds.height)
-            filteredVideoView3?.frame = CGRectMake(0.0, view.bounds.height/5 * 2, view.bounds.width, view.bounds.height)
-            filteredVideoView4?.frame = CGRectMake(0.0, view.bounds.height/5 * 3, view.bounds.width, view.bounds.height)
-            filteredVideoView5?.frame = CGRectMake(0.0, view.bounds.height/5 * 4, view.bounds.width, view.bounds.height)
+            filteredVideoViews[0].frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+            filteredVideoViews[1].frame = CGRectMake(0.0, view.bounds.height/5, view.bounds.width, view.bounds.height)
+            filteredVideoViews[2].frame = CGRectMake(0.0, view.bounds.height/5 * 2, view.bounds.width, view.bounds.height)
+            filteredVideoViews[3].frame = CGRectMake(0.0, view.bounds.height/5 * 3, view.bounds.width, view.bounds.height)
+            filteredVideoViews[4].frame = CGRectMake(0.0, view.bounds.height/5 * 4, view.bounds.width, view.bounds.height)
             
         default:
-            filteredVideoView?.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
-            filteredVideoView2?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filteredVideoView3?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filteredVideoView4?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filteredVideoView5?.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-            filtersOnScreen = 1
+            //filteredVideoViews[0].frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+            print("should not be here...")
         }
        
         
@@ -111,15 +87,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func toggleBottomBar(sender: AnyObject){
-        filtersOnScreen += 1
-        fitViewsOntoScreen()
         print(filtersOnScreen)
-        //bottomBar.hidden = !bottomBar.hidden
+        bottomBar.hidden = !bottomBar.hidden
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        view.bringSubviewToFront(bottomBar)
+        segment.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,80 +101,51 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    func getShaderName(filtertype: String, filterlist: [FilterStruct]) -> String {
+        
+        var As = filterList
+        
+        let b = As.filter({ (a: FilterStruct) -> Bool in return (a.shortName == filtertype) })
+        
+        return b[0].shader
+    
+    }
+    
     func cameraMagic(){
+        videoCamera?.stopCameraCapture()
         videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .Back)
         videoCamera!.outputImageOrientation = .Portrait
-        filter = GPUImageFilter(fragmentShaderFromFile: "Normal")
-        filter2 = GPUImageFilter(fragmentShaderFromFile: "Protanopia")
-        filter3 = GPUImageFilter(fragmentShaderFromFile: "Deuteranopia")
-        filter4 = GPUImageFilter(fragmentShaderFromFile: "Tritanopia")
-        filter5 = GPUImageFilter(fragmentShaderFromFile: "Mono")
         
+        filters = []
+        filteredVideoViews = []
+        for filter in activeFilters {
+            let newFilteredVideoView = GPUImageView()
+            let screenTouch = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+            let shaderName = getShaderName(filter, filterlist: filterList)
+            let newFilter:GPUImageFilter = GPUImageFilter(fragmentShaderFromFile: shaderName)
+            filters.append(newFilter)
+            filteredVideoViews.append(newFilteredVideoView)
+            videoCamera?.addTarget(newFilter)
+            newFilter.addTarget(newFilteredVideoView)
+            newFilteredVideoView.addGestureRecognizer(screenTouch)
+            view.addSubview(newFilteredVideoView)
+        }
         
-        videoCamera?.addTarget(filter)
-        videoCamera?.addTarget(filter2)
-        videoCamera?.addTarget(filter3)
-        videoCamera?.addTarget(filter4)
-        videoCamera?.addTarget(filter5)
+        view.bringSubviewToFront(bottomBar)
+        view.bringSubviewToFront(segment)
         
-        
-        filter?.addTarget(filteredVideoView)
-        filter2?.addTarget(filteredVideoView2)
-        filter3?.addTarget(filteredVideoView3)
-        filter4?.addTarget(filteredVideoView4)
-        filter5?.addTarget(filteredVideoView5)
-        
-    
         videoCamera?.startCameraCapture()
         
-        let screenPlus = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
-        let screenPlus2 = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
-        let screenPlus3 = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
-        let screenPlus4 = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
-        let screenPlus5 = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+    }
+    
+    func multiSelect(multiSelecSegmendedControl: MultiSelectSegmentedControl!, didChangeValue value: Bool, atIndex index: UInt) {
         
-        let touch = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
-        
-        let touch2 = UITapGestureRecognizer(target:self, action:"pickerButtonTouchUpInside:")
-        filteredVideoView!.addGestureRecognizer(screenPlus)
-        filteredVideoView2!.addGestureRecognizer(screenPlus2)
-        filteredVideoView3!.addGestureRecognizer(screenPlus3)
-        filteredVideoView4!.addGestureRecognizer(screenPlus4)
-        filteredVideoView5!.addGestureRecognizer(screenPlus5)
-
-        bottomBar.addGestureRecognizer(touch2)
-        
-        view.addSubview(filteredVideoView!)
-        view.addSubview(filteredVideoView2!)
-        view.addSubview(filteredVideoView3!)
-        view.addSubview(filteredVideoView4!)
-        view.addSubview(filteredVideoView5!)
+        activeFilters = segment.selectedSegmentTitles as! [String]
+        filtersOnScreen = activeFilters.count
+        print(activeFilters)
+        cameraMagic()
+        fitViewsOntoScreen()
         
     }
 
-    @IBAction func pickerButtonTouchUpInside(sender: AnyObject) {
-        filterPickerContainer.hidden = false
-        view.bringSubviewToFront(filterPickerContainer)
-    }
-    
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let title: NSString = filterList[row]
-        let attString: NSAttributedString = NSAttributedString(string: title as String, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
-        
-        return attString;
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return filterList.count
-    }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-        
-    @IBAction func filterPickerDoneButtonClick(sender: AnyObject) {
-        print("lol")
-        filterPickerContainer.hidden = true
-    }
 }

@@ -54,6 +54,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     var activeFilters:[String] = ["Norm"]
     var videoCamera:GPUImageVideoCamera?
     var library:ALAssetsLibrary =  ALAssetsLibrary()
+    var cameraPosition: AVCaptureDevicePosition = .Back
    
     
     @IBOutlet weak var containerView: UIView!
@@ -70,7 +71,17 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         segment.selectedSegmentIndexes = NSIndexSet(index: 0)
-        cameraMagic()
+        
+        for filter in filterList {
+            let screenTouch = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+            filter.view.addGestureRecognizer(screenTouch)
+            containerView.addSubview(filter.view)
+        }
+        
+        view.bringSubviewToFront(containerView)
+        view.bringSubviewToFront(bottomBar)
+        
+        cameraMagic(cameraPosition)
         fitViewsOntoScreen()
         
     }
@@ -155,21 +166,16 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     }
     
+
     
-    
-    func cameraMagic(){
-        videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .Back)
+    func cameraMagic(position: AVCaptureDevicePosition){
+        videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: position)
         videoCamera!.outputImageOrientation = .Portrait
         
         for filter in filterList {
-            let screenTouch = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
             videoCamera?.addTarget(filter.filter)
-            filter.view.addGestureRecognizer(screenTouch)
-            containerView.addSubview(filter.view)
         }
         videoCamera?.startCameraCapture()
-        view.bringSubviewToFront(containerView)
-        view.bringSubviewToFront(bottomBar)
     }
     
     func multiSelect(multiSelecSegmendedControl: MultiSelectSegmentedControl!, didChangeValue value: Bool, atIndex index: UInt) {
@@ -184,9 +190,6 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     }
 
     @IBAction func snapButtonTouchUpInside(sender: AnyObject) {
-        
-        print("lol")
-        
         let view = containerView
         let viewImage:UIImage = view.pb_takeSnapshot()
         saveImageToAlbum(viewImage)
@@ -203,6 +206,12 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         
     }
     
+    @IBAction func flipButtonTouchUpInside(sender: AnyObject) {
+        toggleCameraPosition()
+        videoCamera?.stopCameraCapture()
+        cameraMagic(cameraPosition)
+    }
+    
     func saveImageToAlbum(image:UIImage) {
         library.writeImageToSavedPhotosAlbum(image.CGImage, orientation: ALAssetOrientation(rawValue: image.imageOrientation.rawValue)!, completionBlock:saveDone)
     }
@@ -211,6 +220,14 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     func saveDone(assetURL:NSURL!, error:NSError!){
         print("saveDone")
         library.assetForURL(assetURL, resultBlock: self.saveToAlbum, failureBlock: nil)
+    }
+    
+    func toggleCameraPosition(){
+        if(cameraPosition == AVCaptureDevicePosition.Back){
+            cameraPosition = AVCaptureDevicePosition.Front
+        }else{
+            cameraPosition = AVCaptureDevicePosition.Back
+        }
     }
     
     func saveToAlbum(asset:ALAsset!){
@@ -235,6 +252,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         })
         
     }
+
 }
 
 extension UIView {

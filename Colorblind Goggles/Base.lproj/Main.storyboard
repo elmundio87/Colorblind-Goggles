@@ -65,6 +65,9 @@
                                             <state key="normal" image="Switch Camera-100.png">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="flipButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0kX-3D-tlF"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <animations/>

@@ -59,7 +59,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       
+        segment.selectedSegmentIndexes = NSIndexSet(index: 0)
         cameraMagic()
         fitViewsOntoScreen()
         
@@ -163,6 +163,10 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     }
     
     func multiSelect(multiSelecSegmendedControl: MultiSelectSegmentedControl!, didChangeValue value: Bool, atIndex index: UInt) {
+        
+        if(segment.selectedSegmentIndexes.count == 0){
+            segment.selectedSegmentIndexes = NSIndexSet(index: Int(index))
+        }
         
         activeFilters = segment.selectedSegmentTitles as! [String]
         print(activeFilters)

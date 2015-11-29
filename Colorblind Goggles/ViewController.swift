@@ -18,6 +18,7 @@ struct FilterStruct {
     var filter: GPUImageFilter
     var view: GPUImageView
     var hidden: Bool
+    var label: UILabel
     
     init(name: String, shortName: String, shader: String){
         self.hidden = true
@@ -27,10 +28,24 @@ struct FilterStruct {
         self.filter = GPUImageFilter(fragmentShaderFromFile: self.shader)
         self.view = GPUImageView()
         self.filter.addTarget(self.view)
+        self.label = UILabel(frame: CGRect(x:20.0,y:0.0,width:200.0,height:50.0))
+        
+        let shadow : NSShadow = NSShadow()
+        shadow.shadowOffset = CGSizeMake(1.0, 1.0)
+        shadow.shadowColor = UIColor.blackColor()
+        
+        let attributes = [
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSShadowAttributeName : shadow]
+        
+        let title = NSAttributedString(string: self.name, attributes: attributes) //1
+        label.attributedText = title
+        self.view.addSubview(label)
     }
     
     mutating func setHidden(hidden: Bool){
         self.hidden = hidden
+        self.view.hidden = hidden
     }
 }
 

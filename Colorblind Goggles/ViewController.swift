@@ -51,17 +51,12 @@ struct FilterStruct {
 
 class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var pickerButton: UIButton!
-    @IBOutlet weak var colourblindLabel: UILabel!
-    
     var activeFilters:[String] = ["Norm"]
-    
-    var filteredVideoViews:[GPUImageView] = []
-    var filters:[GPUImageFilter] = []
     var videoCamera:GPUImageVideoCamera?
+    var library:ALAssetsLibrary =  ALAssetsLibrary()
    
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var segment: MultiSelectSegmentedControl!
     @IBOutlet weak var bottomBar: UIVisualEffectView!
     
@@ -170,11 +165,11 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
             let screenTouch = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
             videoCamera?.addTarget(filter.filter)
             filter.view.addGestureRecognizer(screenTouch)
-            view.addSubview(filter.view)
+            containerView.addSubview(filter.view)
         }
         videoCamera?.startCameraCapture()
+        view.bringSubviewToFront(containerView)
         view.bringSubviewToFront(bottomBar)
-        view.bringSubviewToFront(segment)
     }
     
     func multiSelect(multiSelecSegmendedControl: MultiSelectSegmentedControl!, didChangeValue value: Bool, atIndex index: UInt) {
@@ -188,4 +183,60 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         fitViewsOntoScreen()
     }
 
+    @IBAction func snapButtonTouchUpInside(sender: AnyObject) {
+        
+        print("lol")
+        
+        let view = containerView
+        let viewImage:UIImage = view.pb_takeSnapshot()
+        saveImageToAlbum(viewImage)
+    }
+    
+    func saveImageToAlbum(image:UIImage) {
+        library.writeImageToSavedPhotosAlbum(image.CGImage, orientation: ALAssetOrientation(rawValue: image.imageOrientation.rawValue)!, completionBlock:saveDone)
+    }
+
+
+    func saveDone(assetURL:NSURL!, error:NSError!){
+        print("saveDone")
+        library.assetForURL(assetURL, resultBlock: self.saveToAlbum, failureBlock: nil)
+    }
+    
+    func saveToAlbum(asset:ALAsset!){
+        
+        library.enumerateGroupsWithTypes(ALAssetsGroupAlbum, usingBlock: { group, stop in
+            stop.memory = false
+            if(group != nil){
+                let str = group.valueForProperty(ALAssetsGroupPropertyName) as! String
+                if(str == "MY_ALBUM_NAME"){
+                    group!.addAsset(asset!)
+                    let assetRep:ALAssetRepresentation = asset.defaultRepresentation()
+                    let iref = assetRep.fullResolutionImage().takeUnretainedValue()
+                    let image:UIImage =  UIImage(CGImage:iref)
+                    
+                }
+                
+            }
+            
+            },
+            failureBlock: { error in
+                print("NOOOOOOO")
+        })
+        
+    }
+}
+
+extension UIView {
+    
+    func pb_takeSnapshot() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.mainScreen().scale)
+        
+        drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+        
+        // old style: layer.renderInContext(UIGraphicsGetCurrentContext())
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
 }

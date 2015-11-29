@@ -284,14 +284,22 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
             percent = 100
         }
 
+        percentLabel.alpha = 1
         
         view.bringSubviewToFront(percentLabel)
         percentLabel.text = String(percent) + "%"
-   
         
-        lastLocation = recognizer.locationInView(containerView)
-    
-
+        UIView.animateWithDuration(1.0) {
+            self.percentLabel.alpha = 0
+        }
+   
+        let factor = Float(percent)/100
+        
+        for index in 0...(filterList.count - 1){
+            
+            self.filterList[index].filter.setFloat(factor, forUniformName: "factor")
+            
+        }
     }
     
 }

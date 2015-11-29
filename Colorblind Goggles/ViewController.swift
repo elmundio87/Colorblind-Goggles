@@ -38,7 +38,7 @@ struct FilterStruct {
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSShadowAttributeName : shadow]
         
-        let title = NSAttributedString(string: self.name, attributes: attributes) //1
+        let title = NSAttributedString(string: self.name, attributes: attributes)
         label.attributedText = title
         self.view.addSubview(label)
     }
@@ -92,9 +92,12 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         let videoViews = getVisibleFilterStructs(filterList)
         
         
-        for var filter in filterList{
-            filter.view.frame = CGRectMake(0.0, 0.0, 0.0, 0.0)
-        }
+        filterList[0].view.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+        filterList[1].view.frame = CGRectMake(0.0, view.bounds.height/5, view.bounds.width, view.bounds.height)
+        filterList[2].view.frame = CGRectMake(0.0, view.bounds.height/5 * 2, view.bounds.width, view.bounds.height)
+        filterList[3].view.frame = CGRectMake(0.0, view.bounds.height/5 * 3, view.bounds.width, view.bounds.height)
+        filterList[4].view.frame = CGRectMake(0.0, view.bounds.height/5 * 4, view.bounds.width, view.bounds.height)
+
         
         switch videoViews.count{
             
@@ -172,10 +175,11 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: position)
         videoCamera!.outputImageOrientation = .Portrait
         
+        videoCamera?.startCameraCapture()
         for filter in filterList {
             videoCamera?.addTarget(filter.filter)
         }
-        videoCamera?.startCameraCapture()
+        
     }
     
     func multiSelect(multiSelecSegmendedControl: MultiSelectSegmentedControl!, didChangeValue value: Bool, atIndex index: UInt) {

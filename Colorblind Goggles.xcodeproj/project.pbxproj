@@ -18,6 +18,9 @@
 		4819691B1C09385A0058F708 /* MultiSelectSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4819691A1C09385A0058F708 /* MultiSelectSegmentedControl.m */; };
 		4890D3091C0B74DC0055E08D /* UIView+Genie.m in Sources */ = {isa = PBXBuildFile; fileRef = 4890D3081C0B74DC0055E08D /* UIView+Genie.m */; };
 		4890D30B1C0B75040055E08D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4890D30A1C0B75040055E08D /* QuartzCore.framework */; };
+		4890D3101C0B7E620055E08D /* Compact Camera-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4890D30D1C0B7E620055E08D /* Compact Camera-100.png */; };
+		4890D3111C0B7E620055E08D /* Glasses-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 4890D30E1C0B7E620055E08D /* Glasses-25.png */; };
+		4890D3121C0B7E620055E08D /* Switch Camera-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4890D30F1C0B7E620055E08D /* Switch Camera-100.png */; };
 		48DA8FB31C07C72500D5A4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */; };
 		48DA8FB51C07C72500D5A4C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FB41C07C72500D5A4C7 /* ViewController.swift */; };
 		48DA8FB81C07C72500D5A4C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DA8FB61C07C72500D5A4C7 /* Main.storyboard */; };
@@ -95,6 +98,9 @@
 		4890D3051C0B74BD0055E08D /* UIView+Genie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Genie.h"; sourceTree = "<group>"; };
 		4890D3081C0B74DC0055E08D /* UIView+Genie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Genie.m"; sourceTree = "<group>"; };
 		4890D30A1C0B75040055E08D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4890D30D1C0B7E620055E08D /* Compact Camera-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Compact Camera-100.png"; sourceTree = "<group>"; };
+		4890D30E1C0B7E620055E08D /* Glasses-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Glasses-25.png"; sourceTree = "<group>"; };
+		4890D30F1C0B7E620055E08D /* Switch Camera-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Switch Camera-100.png"; sourceTree = "<group>"; };
 		48DA8FAF1C07C72400D5A4C7 /* Colorblind Goggles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Colorblind Goggles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48DA8FB41C07C72500D5A4C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +155,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4890D30C1C0B7E620055E08D /* ButtonIcons */ = {
+			isa = PBXGroup;
+			children = (
+				4890D30D1C0B7E620055E08D /* Compact Camera-100.png */,
+				4890D30E1C0B7E620055E08D /* Glasses-25.png */,
+				4890D30F1C0B7E620055E08D /* Switch Camera-100.png */,
+			);
+			path = ButtonIcons;
+			sourceTree = "<group>";
+		};
 		48DA8FA61C07C72400D5A4C7 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +190,7 @@
 		48DA8FB11C07C72500D5A4C7 /* Colorblind Goggles */ = {
 			isa = PBXGroup;
 			children = (
+				4890D30C1C0B7E620055E08D /* ButtonIcons */,
 				48DA8FE21C07D3E400D5A4C7 /* test_image.jpg */,
 				48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */,
 				48DA8FB41C07C72500D5A4C7 /* ViewController.swift */,
@@ -348,12 +365,15 @@
 				48DA8FBD1C07C72500D5A4C7 /* LaunchScreen.storyboard in Resources */,
 				481968BE1C08B7EE0058F708 /* CustomShader.fsh in Resources */,
 				48DA8FBA1C07C72500D5A4C7 /* Assets.xcassets in Resources */,
+				4890D3111C0B7E620055E08D /* Glasses-25.png in Resources */,
 				481968C21C08C5850058F708 /* Deuteranopia.fsh in Resources */,
 				48DA8FB81C07C72500D5A4C7 /* Main.storyboard in Resources */,
+				4890D3121C0B7E620055E08D /* Switch Camera-100.png in Resources */,
 				481968C81C08C9790058F708 /* Normal.fsh in Resources */,
 				481968C61C08C5AD0058F708 /* Mono.fsh in Resources */,
 				481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */,
 				481968C01C08BDEF0058F708 /* Protanopia.fsh in Resources */,
+				4890D3101C0B7E620055E08D /* Compact Camera-100.png in Resources */,
 				48DA8FE31C07D3E400D5A4C7 /* test_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,3 +3,4 @@
 //
 
 #import "MultiSelectSegmentedControl.h"
+#import "UIView+Genie.h"

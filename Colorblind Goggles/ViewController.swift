@@ -190,6 +190,17 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         let view = containerView
         let viewImage:UIImage = view.pb_takeSnapshot()
         saveImageToAlbum(viewImage)
+        
+        let tempView:UIImageView = UIImageView(image: viewImage)
+        self.view.addSubview(tempView)
+        tempView.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+        self.view.bringSubviewToFront(tempView)
+
+        let endRect:CGRect = CGRectMake(view.bounds.width-40, view.bounds.height, 40.0, 10.0 );
+        tempView.genieInTransitionWithDuration(0.7, destinationRect: endRect, destinationEdge: BCRectEdge.Top, completion: {
+            tempView.removeFromSuperview()
+        })
+        
     }
     
     func saveImageToAlbum(image:UIImage) {

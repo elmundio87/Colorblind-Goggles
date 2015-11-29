@@ -292,12 +292,10 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         UIView.animateWithDuration(1.0) {
             self.percentLabel.alpha = 0
         }
-   
-        let factor = Float(percent)/100
-        
+           
         for index in 0...(filterList.count - 1){
             
-            self.filterList[index].filter.setFloat(factor, forUniformName: "factor")
+            self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             
         }
     }

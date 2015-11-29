@@ -18,10 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-FF-tRN">
+                                <rect key="frame" x="139" y="274" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-IU-73X">
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                             </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQG-Ww-O1H">
                                 <rect key="frame" x="0.0" y="530" width="320" height="60"/>
@@ -95,6 +103,8 @@
                             <constraint firstItem="Txe-IU-73X" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Np7-CQ-ITu"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aQG-Ww-O1H" secondAttribute="bottom" id="T66-vU-ZFH"/>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="WFJ-s9-bBl"/>
+                            <constraint firstItem="2LV-FF-tRN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b39-Mp-jXI"/>
+                            <constraint firstItem="2LV-FF-tRN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mKX-12-yah"/>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xmG-Y1-xCM"/>
                             <constraint firstItem="aQG-Ww-O1H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ylu-6i-6vS"/>
                         </constraints>
@@ -104,6 +114,7 @@
                     <connections>
                         <outlet property="bottomBar" destination="aQG-Ww-O1H" id="eZh-bi-TIE"/>
                         <outlet property="containerView" destination="Txe-IU-73X" id="m7q-sz-bzs"/>
+                        <outlet property="percentLabel" destination="2LV-FF-tRN" id="4Uh-8F-RUo"/>
                         <outlet property="segment" destination="4HF-yM-XvF" id="f6r-Rr-6RR"/>
                     </connections>
                 </viewController>

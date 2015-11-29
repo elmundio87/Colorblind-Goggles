@@ -55,8 +55,11 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     var videoCamera:GPUImageVideoCamera?
     var library:ALAssetsLibrary =  ALAssetsLibrary()
     var cameraPosition: AVCaptureDevicePosition = .Back
+    var percent = 50
+    var lastLocation:CGPoint = CGPointMake(0, 0)
    
     
+    @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var segment: MultiSelectSegmentedControl!
     @IBOutlet weak var bottomBar: UIVisualEffectView!
@@ -67,10 +70,15 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         FilterStruct(name:"Tritanopia", shortName:  "Tri", shader: "Tritanopia"),
         FilterStruct(name:"Monochromatic", shortName: "Mono", shader: "Mono")]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         segment.selectedSegmentIndexes = NSIndexSet(index: 0)
+        
+        var panRecognizer = UIPanGestureRecognizer(target:self, action:"detectPan:")
+        self.view.gestureRecognizers = [panRecognizer]
+
         
         for filter in filterList {
             let screenTouch = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
@@ -256,7 +264,36 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         })
         
     }
+    
+    @IBAction func detectPan(recognizer:UIPanGestureRecognizer) {
+        let translation = recognizer.translationInView(self.view)
+        let midpoint = containerView.bounds.height / 2
+        let current = recognizer.locationInView(containerView).y
+        if let view = recognizer.view {
+            percent =  (Int)((midpoint - current) * 0.3) + 50
+            
+        }
+        
+        if(percent < 0)
+        {
+            percent = 0
+        }
 
+        if(percent > 100)
+        {
+            percent = 100
+        }
+
+        
+        view.bringSubviewToFront(percentLabel)
+        percentLabel.text = String(percent) + "%"
+   
+        
+        lastLocation = recognizer.locationInView(containerView)
+    
+
+    }
+    
 }
 
 extension UIView {

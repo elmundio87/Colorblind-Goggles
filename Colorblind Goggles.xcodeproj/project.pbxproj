@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		481968B81C08B5070058F708 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481968B51C08B48B0058F708 /* GPUImage.framework */; };
 		481968BA1C08B5490058F708 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 481968B51C08B48B0058F708 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		481968BE1C08B7EE0058F708 /* CustomShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968BD1C08B7EE0058F708 /* CustomShader.fsh */; };
 		481968C01C08BDEF0058F708 /* Protanopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968BF1C08BDEF0058F708 /* Protanopia.fsh */; };
 		481968C21C08C5850058F708 /* Deuteranopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C11C08C5850058F708 /* Deuteranopia.fsh */; };
 		481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C31C08C5930058F708 /* Tritanopia.fsh */; };
@@ -86,7 +85,6 @@
 
 /* Begin PBXFileReference section */
 		481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
-		481968BD1C08B7EE0058F708 /* CustomShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CustomShader.fsh; sourceTree = "<group>"; };
 		481968BF1C08BDEF0058F708 /* Protanopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Protanopia.fsh; sourceTree = "<group>"; };
 		481968C11C08C5850058F708 /* Deuteranopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Deuteranopia.fsh; sourceTree = "<group>"; };
 		481968C31C08C5930058F708 /* Tritanopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Tritanopia.fsh; sourceTree = "<group>"; };
@@ -196,11 +194,9 @@
 				48DA8FB41C07C72500D5A4C7 /* ViewController.swift */,
 				48DA8FB61C07C72500D5A4C7 /* Main.storyboard */,
 				48DA8FB91C07C72500D5A4C7 /* Assets.xcassets */,
-				48DA8FBB1C07C72500D5A4C7 /* LaunchScreen.storyboard */,
 				48DA8FBE1C07C72500D5A4C7 /* Info.plist */,
 				48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */,
 				48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */,
-				481968BD1C08B7EE0058F708 /* CustomShader.fsh */,
 				481968BF1C08BDEF0058F708 /* Protanopia.fsh */,
 				481968C11C08C5850058F708 /* Deuteranopia.fsh */,
 				481968C31C08C5930058F708 /* Tritanopia.fsh */,
@@ -211,6 +207,7 @@
 				481969191C09385A0058F708 /* Colorblind Goggles-Bridging-Header.h */,
 				4890D3051C0B74BD0055E08D /* UIView+Genie.h */,
 				4890D3081C0B74DC0055E08D /* UIView+Genie.m */,
+				48DA8FBB1C07C72500D5A4C7 /* LaunchScreen.storyboard */,
 			);
 			path = "Colorblind Goggles";
 			sourceTree = "<group>";
@@ -363,7 +360,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				48DA8FBD1C07C72500D5A4C7 /* LaunchScreen.storyboard in Resources */,
-				481968BE1C08B7EE0058F708 /* CustomShader.fsh in Resources */,
 				48DA8FBA1C07C72500D5A4C7 /* Assets.xcassets in Resources */,
 				4890D3111C0B7E620055E08D /* Glasses-25.png in Resources */,
 				481968C21C08C5850058F708 /* Deuteranopia.fsh in Resources */,

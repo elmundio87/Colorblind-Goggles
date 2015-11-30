@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -83,11 +82,11 @@
                                     <constraints>
                                         <constraint firstItem="4HF-yM-XvF" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="8ho-cS-UOg"/>
                                         <constraint firstItem="xVd-ig-AkX" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="9cb-Uc-MBU"/>
-                                        <constraint firstItem="4HF-yM-XvF" firstAttribute="width" secondItem="P1V-dV-pgO" secondAttribute="width" multiplier="0.6" id="H2Z-9j-qWg"/>
+                                        <constraint firstItem="4HF-yM-XvF" firstAttribute="leading" secondItem="P1V-dV-pgO" secondAttribute="leading" constant="20" id="fM7-IY-Jfc"/>
+                                        <constraint firstItem="4HF-yM-XvF" firstAttribute="trailing" secondItem="xVd-ig-AkX" secondAttribute="leading" constant="-20" id="nto-Z4-fgL"/>
                                         <constraint firstItem="xVd-ig-AkX" firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="leading" constant="-20" id="vDO-Ke-Hct"/>
                                         <constraint firstItem="34L-fQ-V75" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="wo2-lV-paE"/>
-                                        <constraint firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="trailing" constant="10" id="xfw-yo-aCj"/>
-                                        <constraint firstItem="4HF-yM-XvF" firstAttribute="leading" secondItem="P1V-dV-pgO" secondAttribute="leading" constant="10" id="ymZ-eR-fad"/>
+                                        <constraint firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="trailing" constant="20" id="xfw-yo-aCj"/>
                                     </constraints>
                                 </view>
                                 <animations/>

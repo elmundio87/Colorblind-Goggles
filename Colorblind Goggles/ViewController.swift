@@ -96,7 +96,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     }
     
     func fitViewsOntoScreen(){
-        
+        let currentOrientation = UIApplication.sharedApplication().statusBarOrientation
         self.filterList = setHiddenOnFilterStructs(self.activeFilters)
         let videoViews = getVisibleFilterStructs(filterList)
         
@@ -108,6 +108,8 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         filterList[4].view.frame = CGRectMake(0.0, view.bounds.height/5 * 4, view.bounds.width, view.bounds.height)
 
         
+        
+        if(currentOrientation == .Portrait){
         switch videoViews.count{
             
         case  1:
@@ -133,6 +135,34 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
             
         default:
             print("should not be here...")
+            }
+        }else{
+            switch videoViews.count{
+                
+            case  1:
+                videoViews[0].view.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+            case  2:
+                videoViews[0].view.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+                videoViews[1].view.frame = CGRectMake(view.bounds.width * 1/2, 0.0, view.bounds.width, view.bounds.height)
+            case  3:
+                videoViews[0].view.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+                videoViews[1].view.frame = CGRectMake(view.bounds.width * 1/3, 0.0, view.bounds.width, view.bounds.height)
+                videoViews[2].view.frame = CGRectMake(view.bounds.width * 2/3, 0.0, view.bounds.width, view.bounds.height)
+            case 4:
+                videoViews[0].view.frame = CGRectMake(0.0, 0.0, view.bounds.width/2, view.bounds.height/2)
+                videoViews[1].view.frame = CGRectMake(view.bounds.width/2, 0.0, view.bounds.width/2, view.bounds.height/2)
+                videoViews[2].view.frame = CGRectMake(0.0, view.bounds.height/2, view.bounds.width/2, view.bounds.height/2)
+                videoViews[3].view.frame = CGRectMake(view.bounds.width/2, view.bounds.height/2, view.bounds.width/2, view.bounds.height/2)
+            case 5:
+                videoViews[0].view.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+                videoViews[1].view.frame = CGRectMake(view.bounds.width * 1/5, 0.0, view.bounds.width, view.bounds.height)
+                videoViews[2].view.frame = CGRectMake(view.bounds.width * 2/5, 0.0, view.bounds.width, view.bounds.height)
+                videoViews[3].view.frame = CGRectMake(view.bounds.width * 3/5, 0.0, view.bounds.width, view.bounds.height)
+                videoViews[4].view.frame = CGRectMake(view.bounds.width * 4/5, 0.0, view.bounds.width, view.bounds.height)
+                
+            default:
+                print("should not be here...")
+            }
         }
        
     }
@@ -181,8 +211,9 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
 
     
     func cameraMagic(position: AVCaptureDevicePosition){
+        let currentOrientation = UIApplication.sharedApplication().statusBarOrientation
         videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: position)
-        videoCamera!.outputImageOrientation = .Portrait
+        videoCamera!.outputImageOrientation = currentOrientation
         
         videoCamera?.startCameraCapture()
 
@@ -309,6 +340,11 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         }
     }
     
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        videoCamera?.stopCameraCapture()
+        cameraMagic(cameraPosition)
+        fitViewsOntoScreen()
+    }
 }
 
 extension UIView {

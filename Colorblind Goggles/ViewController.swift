@@ -55,7 +55,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     var videoCamera:GPUImageVideoCamera?
     var library:ALAssetsLibrary =  ALAssetsLibrary()
     var cameraPosition: AVCaptureDevicePosition = .Back
-    var percent = 50
+    var percent = 100
     var lastLocation:CGPoint = CGPointMake(0, 0)
    
     
@@ -184,9 +184,13 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         videoCamera!.outputImageOrientation = .Portrait
         
         videoCamera?.startCameraCapture()
-        for filter in filterList {
-            videoCamera?.addTarget(filter.filter)
+
+        for index in 0...(filterList.count - 1){
+            videoCamera?.addTarget(self.filterList[index].filter)
+            self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
         }
+        
+        
         
     }
     

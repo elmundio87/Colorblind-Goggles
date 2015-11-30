@@ -29,7 +29,7 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-IU-73X">
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                             </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQG-Ww-O1H">
@@ -100,7 +100,7 @@
                             </visualEffectView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9e0-Y8-wHz"/>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Np7-CQ-ITu"/>

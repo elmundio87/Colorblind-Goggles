@@ -32,6 +32,7 @@ struct FilterStruct {
         self.label = UILabel(frame: CGRect(x:20.0,y:0.0,width:200.0,height:50.0))
         self.setLabelTitle(self.name)
         self.view.addSubview(label)
+        self.view.fillMode = kGPUImageFillModePreserveAspectRatioAndFill
     }
     
     mutating func setHidden(hidden: Bool){
@@ -225,6 +226,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     func cameraMagic(position: AVCaptureDevicePosition, orientation: UIInterfaceOrientation){
         videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: position)
         videoCamera!.outputImageOrientation = orientation
+        
         
         videoCamera?.startCameraCapture()
 

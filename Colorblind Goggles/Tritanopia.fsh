@@ -26,6 +26,9 @@ void main(){
     highp float L;
     highp float M;
     highp float S;
+    highp float Smin;
+    highp float Smax;
+    highp float Srange;
     
     R = float(textureColor.r);
     G = float(textureColor.g);
@@ -33,9 +36,11 @@ void main(){
     
     L = (17.8824 * (R)) + (43.5161 * (G)) + (4.11935 * (B));
     M = (3.45565 * (R)) + (27.1554 * (G)) + (3.86714 * (B));
-    S = (0.0299566 * (R)) + (0.184309 * (G)) + (1.46709 * (B));
+    Smax = (0.0299566 * (R)) + (0.184309 * (G)) + (1.46709 * (B));
     
-    S = (0.05 * (M));
+    Smin = (0.05 * (M));
+    Srange = (Smax - Smin)/100.00;
+    S = Smax - (Srange * factor);
     
     R = (0.080944 * (L)) - (0.130504 * (M)) + (0.116721 * (S));
     G = (-0.0102485 * (L)) + (0.0540194 * (M)) - (0.113615 * (S));

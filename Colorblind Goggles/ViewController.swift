@@ -29,23 +29,24 @@ struct FilterStruct {
         self.view = GPUImageView()
         self.filter.addTarget(self.view)
         self.label = UILabel(frame: CGRect(x:20.0,y:0.0,width:200.0,height:50.0))
-        
-        let shadow : NSShadow = NSShadow()
-        shadow.shadowOffset = CGSizeMake(1.0, 1.0)
-        shadow.shadowColor = UIColor.blackColor()
-        
-        let attributes = [
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSShadowAttributeName : shadow]
-        
-        let title = NSAttributedString(string: self.name, attributes: attributes)
-        label.attributedText = title
+        self.setLabelTitle(self.name)
         self.view.addSubview(label)
     }
     
     mutating func setHidden(hidden: Bool){
         self.hidden = hidden
         self.view.hidden = hidden
+    }
+    
+    mutating func setLabelTitle(title: String){
+        let shadow : NSShadow = NSShadow()
+        shadow.shadowOffset = CGSizeMake(1.0, 1.0)
+        shadow.shadowColor = UIColor.blackColor()
+        let attributes = [
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSShadowAttributeName : shadow]
+        let title = NSAttributedString(string: title , attributes: attributes)
+        label.attributedText = title
     }
 }
 
@@ -293,14 +294,18 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         view.bringSubviewToFront(percentLabel)
         percentLabel.text = String(percent) + "%"
         
-        UIView.animateWithDuration(1.0) {
+        UIView.animateWithDuration(1.0, delay: 1.0, options: .CurveEaseOut, animations: {
             self.percentLabel.alpha = 0
-        }
+            }, completion: nil)
            
         for index in 0...(filterList.count - 1){
             
             self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
-            
+            if(percent < 100){
+                self.filterList[index].setLabelTitle(self.filterList[index].name + " (" + String(percent) + "%)")
+            }else{
+                self.filterList[index].setLabelTitle(self.filterList[index].name)
+            }
         }
     }
     

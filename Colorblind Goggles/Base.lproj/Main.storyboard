@@ -81,10 +81,8 @@
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="4HF-yM-XvF" firstAttribute="centerX" secondItem="P1V-dV-pgO" secondAttribute="centerX" id="18z-bh-QHD"/>
                                         <constraint firstItem="4HF-yM-XvF" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="8ho-cS-UOg"/>
                                         <constraint firstItem="xVd-ig-AkX" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="9cb-Uc-MBU"/>
-                                        <constraint firstItem="4HF-yM-XvF" firstAttribute="centerX" secondItem="P1V-dV-pgO" secondAttribute="centerX" id="E7A-yi-bVl"/>
                                         <constraint firstItem="4HF-yM-XvF" firstAttribute="width" secondItem="P1V-dV-pgO" secondAttribute="width" multiplier="0.6" id="H2Z-9j-qWg"/>
                                         <constraint firstItem="xVd-ig-AkX" firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="leading" constant="-20" id="vDO-Ke-Hct"/>
                                         <constraint firstItem="34L-fQ-V75" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="wo2-lV-paE"/>

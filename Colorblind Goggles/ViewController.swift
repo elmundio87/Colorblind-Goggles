@@ -268,6 +268,10 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
                 videoCamera?.addTarget(self.filterList[index].filter)
                 self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             }
+        }else{
+            var alert = UIAlertController(title: "Error", message: "No camera found", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         
     }

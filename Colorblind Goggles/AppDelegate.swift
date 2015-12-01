@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,12 +35,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+        if(status == AVAuthorizationStatus.Authorized) {
+            
+        } else if(status == AVAuthorizationStatus.Denied){
+            permissionDenied()
+        } else if(status == AVAuthorizationStatus.Restricted){
+            // restricted
+        } else if(status == AVAuthorizationStatus.NotDetermined){
+            // not determined
+            AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: {
+                granted in
+                if(granted){
+                   
+                } else {
+                    print("Not granted access")
+                }
+            })
+        }
+
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func permissionDenied(){
+        let alertVC = UIAlertController(title: "Permission to access camera was denied", message: "You need to allow Colorblind Goggles to use the camera in Settings to use it", preferredStyle: .ActionSheet)
+        alertVC.addAction(UIAlertAction(title: "Open Settings", style: .Default) {
+            value in
+            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+            })
+        alertVC.addAction(UIAlertAction(title: "Cancel", style: .Cancel) {
+            value in
+            UIControl().sendAction(Selector("suspend"), to: UIApplication.sharedApplication(), forEvent: nil)
+            })
+        
+        var hostVC = self.window?.rootViewController
+        
+        hostVC!.dismissViewControllerAnimated(true, completion: nil)
+        
+        while let next = hostVC?.presentedViewController {
+            hostVC = next
+        }
+        
+        hostVC?.presentViewController(alertVC, animated: true, completion: nil)
+    }
 
 }
 

@@ -164,17 +164,27 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBw-ZC-wFW">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="clp-Hj-KwN" firstAttribute="width" secondItem="Cok-rG-vQI" secondAttribute="width" id="3pL-Ig-eu1"/>
+                            <constraint firstItem="SD5-Jg-xee" firstAttribute="top" secondItem="dBw-ZC-wFW" secondAttribute="bottom" id="Cva-SN-qCA"/>
+                            <constraint firstItem="dBw-ZC-wFW" firstAttribute="leading" secondItem="Cok-rG-vQI" secondAttribute="leading" id="JUm-2a-Gjp"/>
+                            <constraint firstItem="dBw-ZC-wFW" firstAttribute="top" secondItem="clp-Hj-KwN" secondAttribute="bottom" id="JtW-NX-3Xr"/>
                             <constraint firstItem="clp-Hj-KwN" firstAttribute="top" secondItem="0nF-6M-z2D" secondAttribute="bottom" id="cOl-mM-5en"/>
+                            <constraint firstAttribute="trailing" secondItem="dBw-ZC-wFW" secondAttribute="trailing" id="e1R-Nk-sXv"/>
                             <constraint firstItem="clp-Hj-KwN" firstAttribute="centerX" secondItem="Cok-rG-vQI" secondAttribute="centerX" id="eWQ-mh-MA0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="1pZ-Jq-jBO" id="itB-FR-dcv"/>
+                        <outlet property="webView" destination="dBw-ZC-wFW" id="P2H-Jx-Xlc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1x-1J-4L5" userLabel="First Responder" sceneMemberID="firstResponder"/>

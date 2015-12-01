@@ -17,6 +17,7 @@
 		4819691B1C09385A0058F708 /* MultiSelectSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4819691A1C09385A0058F708 /* MultiSelectSegmentedControl.m */; };
 		4879EA1D1C0E3CD800A25E4F /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4879EA1C1C0E3CD800A25E4F /* AboutController.swift */; };
 		4879EA1F1C0E3F1600A25E4F /* Info-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4879EA1E1C0E3F1600A25E4F /* Info-100.png */; };
+		4879EA211C0E475A00A25E4F /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = 4879EA201C0E475A00A25E4F /* info.html */; };
 		4890D3091C0B74DC0055E08D /* UIView+Genie.m in Sources */ = {isa = PBXBuildFile; fileRef = 4890D3081C0B74DC0055E08D /* UIView+Genie.m */; };
 		4890D30B1C0B75040055E08D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4890D30A1C0B75040055E08D /* QuartzCore.framework */; };
 		4890D3101C0B7E620055E08D /* Compact Camera-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4890D30D1C0B7E620055E08D /* Compact Camera-100.png */; };
@@ -99,6 +100,7 @@
 		4819691C1C0938810058F708 /* MultiSelectSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiSelectSegmentedControl.h; sourceTree = "<group>"; };
 		4879EA1C1C0E3CD800A25E4F /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		4879EA1E1C0E3F1600A25E4F /* Info-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-100.png"; sourceTree = "<group>"; };
+		4879EA201C0E475A00A25E4F /* info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = info.html; sourceTree = "<group>"; };
 		4890D3051C0B74BD0055E08D /* UIView+Genie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Genie.h"; sourceTree = "<group>"; };
 		4890D3081C0B74DC0055E08D /* UIView+Genie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Genie.m"; sourceTree = "<group>"; };
 		4890D30A1C0B75040055E08D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -228,6 +230,7 @@
 				4890D3051C0B74BD0055E08D /* UIView+Genie.h */,
 				4890D3081C0B74DC0055E08D /* UIView+Genie.m */,
 				48DA8FBB1C07C72500D5A4C7 /* LaunchScreen.storyboard */,
+				4879EA201C0E475A00A25E4F /* info.html */,
 			);
 			path = "Colorblind Goggles";
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				481968C21C08C5850058F708 /* Deuteranopia.fsh in Resources */,
 				48DA8FB81C07C72500D5A4C7 /* Main.storyboard in Resources */,
 				4890D3121C0B7E620055E08D /* Switch Camera-100.png in Resources */,
+				4879EA211C0E475A00A25E4F /* info.html in Resources */,
 				481968C81C08C9790058F708 /* Normal.fsh in Resources */,
 				4890D3191C0E00120055E08D /* LaunchLogo.png in Resources */,
 				481968C61C08C5AD0058F708 /* Mono.fsh in Resources */,

@@ -56,6 +56,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     var activeFilters:[String] = ["Norm"]
     var videoCamera:GPUImageVideoCamera?
+    var stillImageSource:GPUImagePicture?
     var library:ALAssetsLibrary =  ALAssetsLibrary()
     var cameraPosition: AVCaptureDevicePosition = .Back
     var percent = 100
@@ -294,9 +295,19 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
                 self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             }
         }else{
-            var alert = UIAlertController(title: "Error", message: "No camera found", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            
+            var inputImage:UIImage = UIImage(imageLiteral: "test.jpg")
+            stillImageSource = GPUImagePicture(image: inputImage)
+            stillImageSource?.useNextFrameForImageCapture()
+            
+            
+            for index in 0...(filterList.count - 1){
+                stillImageSource?.addTarget(self.filterList[index].filter)
+                self.filterList[index].filter.addTarget(self.filterList[index].view)
+                self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
+            }
+            stillImageSource?.processImage()
+    
         }
         
     }

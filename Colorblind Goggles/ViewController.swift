@@ -225,14 +225,16 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     func cameraMagic(position: AVCaptureDevicePosition, orientation: UIInterfaceOrientation){
         videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: position)
-        videoCamera!.outputImageOrientation = orientation
         
+        if(videoCamera != nil){
+            videoCamera!.outputImageOrientation = orientation
         
-        videoCamera?.startCameraCapture()
+            videoCamera?.startCameraCapture()
 
-        for index in 0...(filterList.count - 1){
-            videoCamera?.addTarget(self.filterList[index].filter)
-            self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
+            for index in 0...(filterList.count - 1){
+                videoCamera?.addTarget(self.filterList[index].filter)
+                self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
+            }
         }
         
     }

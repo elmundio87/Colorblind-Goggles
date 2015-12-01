@@ -22,6 +22,7 @@
 		4890D3121C0B7E620055E08D /* Switch Camera-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4890D30F1C0B7E620055E08D /* Switch Camera-100.png */; };
 		4890D3161C0CFA9E0055E08D /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 4890D3141C0CFA9E0055E08D /* Icon-120.png */; };
 		4890D3171C0CFA9E0055E08D /* icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 4890D3151C0CFA9E0055E08D /* icon-180.png */; };
+		4890D3191C0E00120055E08D /* LaunchLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4890D3181C0E00120055E08D /* LaunchLogo.png */; };
 		48DA8FB31C07C72500D5A4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */; };
 		48DA8FB51C07C72500D5A4C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FB41C07C72500D5A4C7 /* ViewController.swift */; };
 		48DA8FB81C07C72500D5A4C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DA8FB61C07C72500D5A4C7 /* Main.storyboard */; };
@@ -30,7 +31,6 @@
 		48DA8FC81C07C72500D5A4C7 /* Colorblind_GogglesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FC71C07C72500D5A4C7 /* Colorblind_GogglesTests.swift */; };
 		48DA8FD31C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */; };
 		48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */; };
-		48DA8FE31C07D3E400D5A4C7 /* test_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DA8FE21C07D3E400D5A4C7 /* test_image.jpg */; };
 		48DA8FE51C07D67100D5A4C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +103,7 @@
 		4890D30F1C0B7E620055E08D /* Switch Camera-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Switch Camera-100.png"; sourceTree = "<group>"; };
 		4890D3141C0CFA9E0055E08D /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		4890D3151C0CFA9E0055E08D /* icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-180.png"; sourceTree = "<group>"; };
+		4890D3181C0E00120055E08D /* LaunchLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchLogo.png; sourceTree = "<group>"; };
 		48DA8FAF1C07C72400D5A4C7 /* Colorblind Goggles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Colorblind Goggles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48DA8FB41C07C72500D5A4C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 		48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorblind_GogglesUITests.swift; sourceTree = "<group>"; };
 		48DA8FD41C07C72500D5A4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorblindFilter.swift; sourceTree = "<group>"; };
-		48DA8FE21C07D3E400D5A4C7 /* test_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_image.jpg; sourceTree = "<group>"; };
 		48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,9 +201,9 @@
 		48DA8FB11C07C72500D5A4C7 /* Colorblind Goggles */ = {
 			isa = PBXGroup;
 			children = (
+				4890D3181C0E00120055E08D /* LaunchLogo.png */,
 				4890D3131C0CFA9E0055E08D /* AppIcons */,
 				4890D30C1C0B7E620055E08D /* ButtonIcons */,
-				48DA8FE21C07D3E400D5A4C7 /* test_image.jpg */,
 				48DA8FB21C07C72500D5A4C7 /* AppDelegate.swift */,
 				48DA8FB41C07C72500D5A4C7 /* ViewController.swift */,
 				48DA8FB61C07C72500D5A4C7 /* Main.storyboard */,
@@ -382,12 +382,12 @@
 				48DA8FB81C07C72500D5A4C7 /* Main.storyboard in Resources */,
 				4890D3121C0B7E620055E08D /* Switch Camera-100.png in Resources */,
 				481968C81C08C9790058F708 /* Normal.fsh in Resources */,
+				4890D3191C0E00120055E08D /* LaunchLogo.png in Resources */,
 				481968C61C08C5AD0058F708 /* Mono.fsh in Resources */,
 				4890D3161C0CFA9E0055E08D /* Icon-120.png in Resources */,
 				481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */,
 				481968C01C08BDEF0058F708 /* Protanopia.fsh in Resources */,
 				4890D3101C0B7E620055E08D /* Compact Camera-100.png in Resources */,
-				48DA8FE31C07D3E400D5A4C7 /* test_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

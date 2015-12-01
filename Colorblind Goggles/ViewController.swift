@@ -62,6 +62,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     var lastLocation:CGPoint = CGPointMake(0, 0)
    
     
+    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var segment: MultiSelectSegmentedControl!
@@ -92,8 +93,29 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         
         view.bringSubviewToFront(containerView)
         view.bringSubviewToFront(bottomBar)
+        view.bringSubviewToFront(infoButton)
 
         self.fitViewsOntoScreen()
+        
+        let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+        if(status == AVAuthorizationStatus.Authorized) {
+            cameraMagic(cameraPosition)
+        } else if(status == AVAuthorizationStatus.Denied){
+            permissionDenied()
+        } else if(status == AVAuthorizationStatus.Restricted){
+            // restricted
+        } else if(status == AVAuthorizationStatus.NotDetermined){
+            // not determined
+            AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: {
+                granted in
+                if(granted){
+                    self.cameraMagic(self.cameraPosition)
+                } else {
+                    print("Not granted access")
+                }
+            })
+        }
+
         
     }
     
@@ -176,6 +198,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     func toggleBottomBar(sender: AnyObject){
         bottomBar.hidden = !bottomBar.hidden
+        infoButton.hidden = bottomBar.hidden
     }
     
     func permissionDenied(){
@@ -191,26 +214,6 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         segment.delegate = self
-        
-        let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
-        if(status == AVAuthorizationStatus.Authorized) {
-            cameraMagic(cameraPosition)
-        } else if(status == AVAuthorizationStatus.Denied){
-            permissionDenied()
-        } else if(status == AVAuthorizationStatus.Restricted){
-            // restricted
-        } else if(status == AVAuthorizationStatus.NotDetermined){
-            // not determined
-            AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: {
-                granted in
-                if(granted){
-                    self.cameraMagic(self.cameraPosition)
-                } else {
-                    print("Not granted access")
-                }
-            })
-        }
-        
     }
 
     override func didReceiveMemoryWarning() {

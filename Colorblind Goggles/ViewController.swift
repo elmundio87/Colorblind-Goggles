@@ -41,10 +41,12 @@ struct FilterStruct {
     }
     
     mutating func setLabelTitle(title: String){
+        let font:UIFont = UIFont(name: "Helvetica-Bold", size: 18.0)!
         let shadow : NSShadow = NSShadow()
         shadow.shadowOffset = CGSizeMake(1.0, 1.0)
         shadow.shadowColor = UIColor.blackColor()
         let attributes = [
+            NSFontAttributeName: font,
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSShadowAttributeName : shadow]
         let title = NSAttributedString(string: title , attributes: attributes)
@@ -55,7 +57,7 @@ struct FilterStruct {
 class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     var activeFilters:[String] = ["Norm"]
-    var videoCamera:GPUImageVideoCamera?
+    var videoCamera:GPUImageStillCamera?
     var stillImageSource:GPUImagePicture?
     var library:ALAssetsLibrary =  ALAssetsLibrary()
     var cameraPosition: AVCaptureDevicePosition = .Back
@@ -283,7 +285,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     
     func cameraMagic(position: AVCaptureDevicePosition, orientation: UIInterfaceOrientation){
-        videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: position)
+        videoCamera = GPUImageStillCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: position)
         
         if(videoCamera != nil){
             videoCamera!.outputImageOrientation = orientation

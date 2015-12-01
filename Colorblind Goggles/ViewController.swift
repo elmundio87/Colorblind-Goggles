@@ -179,14 +179,10 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     }
     
     func permissionDenied(){
-        let alertVC = UIAlertController(title: "Permission to access camera was denied", message: "You need to allow Colorblind Goggles to use the camera in Settings to use it", preferredStyle: .ActionSheet)
+        let alertVC = UIAlertController(title: "Permission to access camera was denied", message: "You need to allow Colorblind Goggles to use the camera in Settings to use it", preferredStyle: .Alert)
         alertVC.addAction(UIAlertAction(title: "Open Settings", style: .Default) {
             value in
             UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
-            })
-        alertVC.addAction(UIAlertAction(title: "Cancel", style: .Cancel) {
-            value in
-            UIControl().sendAction(Selector("suspend"), to: UIApplication.sharedApplication(), forEvent: nil)
             })
         
         self.presentViewController(alertVC, animated: true, completion: nil)

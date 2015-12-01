@@ -60,6 +60,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     var cameraPosition: AVCaptureDevicePosition = .Back
     var percent = 100
     var lastLocation:CGPoint = CGPointMake(0, 0)
+    var viewState:Int = 0
    
     
     @IBOutlet weak var infoButton: UIButton!
@@ -74,6 +75,9 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         FilterStruct(name:"Tritanopia", shortName:  "Tri", shader: "Tritanopia"),
         FilterStruct(name:"Monochromatic", shortName: "Mono", shader: "Mono")]
     
+    enum ViewState: Int {
+        case ViewAll = 0, BottomBarHidden, FilterLabelsHidden
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +90,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
 
         
         for filter in filterList {
-            let screenTouch = UITapGestureRecognizer(target:self, action:"toggleBottomBar:")
+            let screenTouch = UITapGestureRecognizer(target:self, action:"incrementViewState:")
             filter.view.addGestureRecognizer(screenTouch)
             containerView.addSubview(filter.view)
         }
@@ -196,9 +200,31 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
        
     }
     
-    func toggleBottomBar(sender: AnyObject){
-        bottomBar.hidden = !bottomBar.hidden
-        infoButton.hidden = bottomBar.hidden
+    func incrementViewState(sender: AnyObject){
+
+        self.viewState += 1
+        
+        switch (self.viewState){
+        case ViewState.ViewAll.rawValue:
+            bottomBar.hidden = false
+            infoButton.hidden = false
+            for filter in filterList{
+                filter.label.hidden = false
+            }
+        case ViewState.BottomBarHidden.rawValue:
+            bottomBar.hidden = true
+            infoButton.hidden = true
+        case ViewState.FilterLabelsHidden.rawValue:
+            for filter in filterList{
+                filter.label.hidden = true
+            }
+        default:
+            self.viewState = -1
+            incrementViewState(true)
+        }
+        
+        
+  
     }
     
     func permissionDenied(){

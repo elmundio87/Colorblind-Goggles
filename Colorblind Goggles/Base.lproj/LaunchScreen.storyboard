@@ -21,24 +21,13 @@
                                 <rect key="frame" x="51" y="244" width="219" height="128"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Colorblind Goggles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gin-Nn-QBh">
-                                <rect key="frame" x="38" y="188" width="244" height="35"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="27"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="1" height="1"/>
-                            </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.62556628116778523" green="0.90300441626241601" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="NGw-bM-Jp4" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" constant="-20" id="4rk-1c-16d"/>
-                            <constraint firstItem="NGw-bM-Jp4" firstAttribute="top" secondItem="Gin-Nn-QBh" secondAttribute="bottom" constant="50" id="M1O-SG-Zrk"/>
-                            <constraint firstItem="NGw-bM-Jp4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="50" id="Yij-dq-hra"/>
+                            <constraint firstItem="NGw-bM-Jp4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Yij-dq-hra"/>
                             <constraint firstItem="NGw-bM-Jp4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="dir-Nw-Dex"/>
-                            <constraint firstItem="Gin-Nn-QBh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="riK-Um-E3M"/>
                         </constraints>
                     </view>
                 </viewController>

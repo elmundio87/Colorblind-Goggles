@@ -5,6 +5,7 @@
 //  Created by Edmund Dipple on 26/11/2015.
 //  Copyright © 2015 Edmund Dipple. All rights reserved.
 //
+// THIS IS SLOW, DO NOT USE.
 
 import Foundation
 

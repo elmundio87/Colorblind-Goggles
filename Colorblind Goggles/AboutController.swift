@@ -13,7 +13,7 @@ class AboutController: UIViewController,UIWebViewDelegate  {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var closeButton: UIBarButtonItem!
     @IBAction func clickedCloseButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {})
+        self.dismiss(animated: true, completion: {})
     }
     
     override func viewDidLoad() {
@@ -23,17 +23,17 @@ class AboutController: UIViewController,UIWebViewDelegate  {
     }
     
     func loadAddressURL(){
-        if let url = NSBundle.mainBundle().URLForResource("info", withExtension: "html") {
-            webView.loadRequest(NSURLRequest(URL: url))
+        if let url = Bundle.main.url(forResource: "info", withExtension: "html") {
+            webView.loadRequest(NSURLRequest(url: url) as URLRequest)
         }
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         
-        let url: NSURL = request.URL!
+        let url: NSURL = request.url! as NSURL
         let isExternalLink: Bool = url.scheme == "http" || url.scheme == "https" || url.scheme == "mailto"
-        if (isExternalLink && navigationType == UIWebViewNavigationType.LinkClicked) {
-            return !UIApplication.sharedApplication().openURL(request.URL!)
+        if (isExternalLink && navigationType == UIWebView.NavigationType.linkClicked) {
+            return !UIApplication.shared.openURL(request.url!)
         } else {
             return true
         }

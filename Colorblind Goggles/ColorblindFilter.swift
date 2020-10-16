@@ -40,9 +40,9 @@ enum FilterType {
     var G = (-0.0102485 * (L)) + (0.0540194 * (M)) - (0.113615 * (S))
     var B = (-0.000365294 * (L)) - (0.00412163 * (M)) + (0.693513 * (S))
     
-    R = minMaxRGBA(R)
-    G = minMaxRGBA(G)
-    B = minMaxRGBA(B)
+        R = minMaxRGBA(val: R)
+        G = minMaxRGBA(val: G)
+        B = minMaxRGBA(val: B)
     
     return (R,G,B,A)
 }

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		481968B81C08B5070058F708 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481968B51C08B48B0058F708 /* GPUImage.framework */; };
-		481968BA1C08B5490058F708 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 481968B51C08B48B0058F708 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		481968C01C08BDEF0058F708 /* Protanopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968BF1C08BDEF0058F708 /* Protanopia.fsh */; };
 		481968C21C08C5850058F708 /* Deuteranopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C11C08C5850058F708 /* Deuteranopia.fsh */; };
 		481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C31C08C5930058F708 /* Tritanopia.fsh */; };
@@ -35,31 +33,10 @@
 		48DA8FC81C07C72500D5A4C7 /* Colorblind_GogglesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FC71C07C72500D5A4C7 /* Colorblind_GogglesTests.swift */; };
 		48DA8FD31C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */; };
 		48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */; };
-		48DA8FE51C07D67100D5A4C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */; };
+		48FACF032539EF1F002808AC /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 48FACEF02539DFD5002808AC /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		481968B21C08B48B0058F708 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
-			remoteInfo = GPUImage;
-		};
-		481968B41C08B48B0058F708 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCE209E51943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
-		};
-		481968B61C08B4F50058F708 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCE209E41943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
-		};
 		48DA8FC41C07C72500D5A4C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 48DA8FA71C07C72400D5A4C7 /* Project object */;
@@ -74,6 +51,27 @@
 			remoteGlobalIDString = 48DA8FAE1C07C72400D5A4C7;
 			remoteInfo = "Colorblind Goggles";
 		};
+		48FACEED2539DFD5002808AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		48FACEEF2539DFD5002808AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		48FACEF62539DFED002808AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,14 +81,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				481968BA1C08B5490058F708 /* GPUImage.framework in CopyFiles */,
+				48FACF032539EF1F002808AC /* GPUImage.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		481968BF1C08BDEF0058F708 /* Protanopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Protanopia.fsh; sourceTree = "<group>"; };
 		481968C11C08C5850058F708 /* Deuteranopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Deuteranopia.fsh; sourceTree = "<group>"; };
 		481968C31C08C5930058F708 /* Tritanopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Tritanopia.fsh; sourceTree = "<group>"; };
@@ -126,7 +123,7 @@
 		48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorblind_GogglesUITests.swift; sourceTree = "<group>"; };
 		48DA8FD41C07C72500D5A4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorblindFilter.swift; sourceTree = "<group>"; };
-		48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4890D30B1C0B75040055E08D /* QuartzCore.framework in Frameworks */,
-				481968B81C08B5070058F708 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,15 +152,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		481968AD1C08B48B0058F708 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				481968B31C08B48B0058F708 /* libGPUImage.a */,
-				481968B51C08B48B0058F708 /* GPUImage.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4890D30C1C0B7E620055E08D /* ButtonIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				4890D30A1C0B75040055E08D /* QuartzCore.framework */,
-				481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */,
+				48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */,
 				48DA8FB11C07C72500D5A4C7 /* Colorblind Goggles */,
 				48DA8FC61C07C72500D5A4C7 /* Colorblind GogglesTests */,
 				48DA8FD11C07C72500D5A4C7 /* Colorblind GogglesUITests */,
@@ -221,7 +208,6 @@
 				48DA8FB91C07C72500D5A4C7 /* Assets.xcassets */,
 				48DA8FBE1C07C72500D5A4C7 /* Info.plist */,
 				48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */,
-				48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */,
 				481968BF1C08BDEF0058F708 /* Protanopia.fsh */,
 				481968C11C08C5850058F708 /* Deuteranopia.fsh */,
 				481968C31C08C5930058F708 /* Tritanopia.fsh */,
@@ -256,6 +242,15 @@
 			path = "Colorblind GogglesUITests";
 			sourceTree = "<group>";
 		};
+		48FACEE82539DFD5002808AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48FACEEE2539DFD5002808AC /* libGPUImage.a */,
+				48FACEF02539DFD5002808AC /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,7 +266,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				481968B71C08B4F50058F708 /* PBXTargetDependency */,
+				48FACEF72539DFED002808AC /* PBXTargetDependency */,
 			);
 			name = "Colorblind Goggles";
 			productName = "Colorblind Goggles";
@@ -343,6 +338,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -351,8 +347,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 481968AD1C08B48B0058F708 /* Products */;
-					ProjectRef = 481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */;
+					ProductGroup = 48FACEE82539DFD5002808AC /* Products */;
+					ProjectRef = 48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -365,18 +361,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		481968B31C08B48B0058F708 /* libGPUImage.a */ = {
+		48FACEEE2539DFD5002808AC /* libGPUImage.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libGPUImage.a;
-			remoteRef = 481968B21C08B48B0058F708 /* PBXContainerItemProxy */;
+			remoteRef = 48FACEED2539DFD5002808AC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		481968B51C08B48B0058F708 /* GPUImage.framework */ = {
+		48FACEF02539DFD5002808AC /* GPUImage.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = GPUImage.framework;
-			remoteRef = 481968B41C08B48B0058F708 /* PBXContainerItemProxy */;
+			remoteRef = 48FACEEF2539DFD5002808AC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -433,7 +429,6 @@
 				4890D3091C0B74DC0055E08D /* UIView+Genie.m in Sources */,
 				48DA8FB31C07C72500D5A4C7 /* AppDelegate.swift in Sources */,
 				4879EA1D1C0E3CD800A25E4F /* AboutController.swift in Sources */,
-				48DA8FE51C07D67100D5A4C7 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,11 +451,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		481968B71C08B4F50058F708 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GPUImageFramework;
-			targetProxy = 481968B61C08B4F50058F708 /* PBXContainerItemProxy */;
-		};
 		48DA8FC51C07C72500D5A4C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 48DA8FAE1C07C72400D5A4C7 /* Colorblind Goggles */;
@@ -470,6 +460,11 @@
 			isa = PBXTargetDependency;
 			target = 48DA8FAE1C07C72400D5A4C7 /* Colorblind Goggles */;
 			targetProxy = 48DA8FCF1C07C72500D5A4C7 /* PBXContainerItemProxy */;
+		};
+		48FACEF72539DFED002808AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = 48FACEF62539DFED002808AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -529,11 +524,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -568,9 +564,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -583,7 +580,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Colorblind Goggles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-Goggles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -600,7 +597,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Colorblind Goggles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-Goggles";
 				PRODUCT_NAME = "$(TARGET_NAME)";

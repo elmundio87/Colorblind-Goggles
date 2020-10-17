@@ -328,7 +328,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         
     }
 
-    @IBAction func snapButtonTouchUpInside(sender: AnyObject) {
+    @IBAction func snapButtonTouchUpInside(_ sender: Any) {
         let view = containerView
         let viewImage:UIImage = view!.pb_takeSnapshot()
         saveImageToAlbum(image: viewImage)
@@ -342,10 +342,9 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         tempView.genieInTransition(withDuration: 0.7, destinationRect: endRect, destinationEdge: BCRectEdge.top, completion: {
             tempView.removeFromSuperview()
         })
-        
     }
     
-    @IBAction func flipButtonTouchUpInside(sender: AnyObject) {
+    @IBAction func flipButtonTouchUpInside(_ sender: Any) {
         toggleCameraPosition()
         videoCamera?.stopCapture()
         cameraMagic(position: cameraPosition)

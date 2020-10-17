@@ -47,7 +47,7 @@
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="snapButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTa-Sb-Bvu"/>
+                                                <action selector="snapButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8tl-Tm-kFR"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVd-ig-AkX" userLabel="Flip">
@@ -60,7 +60,7 @@
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="flipButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0kX-3D-tlF"/>
+                                                <action selector="flipButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8K0-NE-6Ei"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NRt-GK-3DO" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">

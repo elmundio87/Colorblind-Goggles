@@ -57,9 +57,13 @@ struct FilterStruct {
 
 class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     func multiSelect(_ multiSelectSegmentedControl: MultiSelectSegmentedControl, didChange value: Bool, at index: Int) {
-        // TODO
+        if(segment.selectedSegmentIndexes.count == 0){
+            segment.selectedSegmentIndexes = NSIndexSet(index: Int(index)) as IndexSet
+        }
+        
+        activeFilters = segment.selectedSegmentTitles as! [String]
+        fitViewsOntoScreen()
     }
-    
     
     var activeFilters:[String] = ["Norm"]
     var videoCamera:GPUImageStillCamera?
@@ -89,9 +93,13 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        NotificationCenter.default.addObserver(self, selector: Selector("orientationChanged"), name: UIDevice.orientationDidChangeNotification, object: nil) TODO
+//        NotificationCenter.default.addObserver(self, selector: Selector("orientationChanged"), name: UIDevice.orientationDidChangeNotification, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
         
+        segment.items = filterList.map{
+            (filter) -> String in
+            return filter.shortName
+        }
         segment.selectedSegmentIndexes = NSIndexSet(index: 0) as IndexSet
 
         var panRecognizer = UIPanGestureRecognizer(target:self, action:Selector(("detectPan:")))
@@ -318,17 +326,6 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
 
         }
         
-    }
-    
-    func multiSelect(_ multiSelecSegmendedControl: MultiSelectSegmentedControl!, didChangeValue value: Bool, at index: UInt) {
-        
-        if(segment.selectedSegmentIndexes.count == 0){
-            segment.selectedSegmentIndexes = NSIndexSet(index: Int(index)) as IndexSet
-        }
-        
-        activeFilters = segment.selectedSegmentTitles as! [String]
-        print(activeFilters)
-        fitViewsOntoScreen()
     }
 
     @IBAction func snapButtonTouchUpInside(sender: AnyObject) {

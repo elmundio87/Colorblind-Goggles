@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-FF-tRN">
@@ -37,11 +37,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NRt-GK-3DO" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
-                                            <rect key="frame" x="40" y="-34" width="240" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34L-fQ-V75" userLabel="Snap">
                                             <rect key="frame" x="542" y="-20" width="50" height="50"/>
                                             <constraints>
@@ -68,9 +63,31 @@
                                                 <action selector="flipButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0kX-3D-tlF"/>
                                             </connections>
                                         </button>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NRt-GK-3DO" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
+                                            <rect key="frame" x="-47" y="2" width="414" height="55"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isVerticalSegmentContents" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="NRt-GK-3DO" firstAttribute="leading" secondItem="P1V-dV-pgO" secondAttribute="leading" constant="15" id="6DY-1q-3JB"/>
+                                        <constraint firstAttribute="trailing" secondItem="NRt-GK-3DO" secondAttribute="trailing" constant="130" id="7rp-Io-vyJ"/>
                                         <constraint firstItem="xVd-ig-AkX" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="9cb-Uc-MBU"/>
+                                        <constraint firstItem="NRt-GK-3DO" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="kFa-DH-0D8"/>
                                         <constraint firstItem="xVd-ig-AkX" firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="leading" constant="-20" id="vDO-Ke-Hct"/>
                                         <constraint firstItem="34L-fQ-V75" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="wo2-lV-paE"/>
                                         <constraint firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="trailing" constant="20" id="xfw-yo-aCj"/>
@@ -132,7 +149,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SD5-Jg-xee"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Cok-rG-vQI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clp-Hj-KwN">
@@ -148,7 +165,7 @@
                                 </items>
                             </navigationBar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBw-ZC-wFW">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="660"/>
                                 <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -175,7 +192,7 @@
     </scenes>
     <designables>
         <designable name="NRt-GK-3DO">
-            <size key="intrinsicContentSize" width="160" height="32"/>
+            <size key="intrinsicContentSize" width="164" height="33.666666666666671"/>
         </designable>
     </designables>
     <resources>

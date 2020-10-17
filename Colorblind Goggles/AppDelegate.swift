@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let alertVC = UIAlertController(title: "Permission to access camera was denied", message: "You need to allow Colorblind Goggles to use the camera in Settings to use it", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Open Settings", style: .default) {
             value in
-            UIApplication.shared.openURL(NSURL(string: UIApplication.openSettingsURLString)! as URL)
+            UIApplication.shared.open(NSURL(string: UIApplication.openSettingsURLString)! as URL)
             })
         
         var hostVC = self.window?.rootViewController

@@ -61,7 +61,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
             segment.selectedSegmentIndexes = NSIndexSet(index: Int(index)) as IndexSet
         }
         
-        activeFilters = segment.selectedSegmentTitles as! [String]
+        activeFilters = segment.selectedSegmentTitles
         fitViewsOntoScreen()
     }
     
@@ -248,7 +248,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         let alertVC = UIAlertController(title: "Permission to access camera was denied", message: "You need to allow Colorblind Goggles to use the camera in Settings to use it", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Open Settings", style: .default) {
             value in
-            UIApplication.shared.openURL(NSURL(string: UIApplication.openSettingsURLString)! as URL)
+            UIApplication.shared.open(NSURL(string: UIApplication.openSettingsURLString)! as URL, options: [:], completionHandler: nil)
             })
         
         self.present(alertVC, animated: true, completion: nil)
@@ -312,7 +312,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
             }
         }else{
 
-            var inputImage:UIImage = UIImage(imageLiteralResourceName: "test.jpg")
+            let inputImage:UIImage = UIImage(imageLiteralResourceName: "test.jpg")
             stillImageSource = GPUImagePicture(image: inputImage)
             stillImageSource?.useNextFrameForImageCapture()
 
@@ -372,17 +372,6 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         
         library.enumerateGroupsWithTypes(ALAssetsGroupAlbum, usingBlock: { group, stop in
 //            stop.memory = false
-            if(group != nil){
-                let str = group!.value(forProperty: ALAssetsGroupPropertyName) as! String
-                if(str == "MY_ALBUM_NAME"){
-                    group!.add(asset!)
-                    let assetRep:ALAssetRepresentation = asset.defaultRepresentation()
-                    let iref = assetRep.fullResolutionImage().takeUnretainedValue()
-                    let image:UIImage =  UIImage(cgImage:iref)
-                    
-                }
-                
-            }
             
             },
             failureBlock: { error in
@@ -392,10 +381,9 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     }
     
     @IBAction func detectPan(recognizer:UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: self.view)
         let midpoint = containerView.bounds.height / 2
         let current = recognizer.location(in: containerView).y
-        if let view = recognizer.view {
+        if recognizer.view != nil {
             percent =  (Int)((midpoint - current) * 0.3) + 50
             
         }

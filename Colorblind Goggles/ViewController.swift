@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-import AssetsLibrary
+import Photos
 import GPUImage
 import MultiSelectSegmentedControl
 
@@ -68,7 +68,6 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     var activeFilters:[String] = ["Norm"]
     var videoCamera:GPUImageStillCamera?
     var stillImageSource:GPUImagePicture?
-    var library:ALAssetsLibrary =  ALAssetsLibrary()
     var cameraPosition: AVCaptureDevice.Position = .back
     var percent = 100
     var lastLocation:CGPoint = CGPoint(x:0, y:0)
@@ -353,12 +352,6 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     func saveImageToAlbum(image:UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
-
-
-    func saveDone(assetURL:NSURL!, error:NSError!){
-        print("saveDone")
-        library.asset(for: assetURL as URL?, resultBlock: self.saveToAlbum, failureBlock: nil)
-    }
     
     func toggleCameraPosition(){
         if(cameraPosition == AVCaptureDevice.Position.back){
@@ -366,18 +359,6 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         }else{
             cameraPosition = AVCaptureDevice.Position.back
         }
-    }
-    
-    func saveToAlbum(asset:ALAsset!){
-        
-        library.enumerateGroupsWithTypes(ALAssetsGroupAlbum, usingBlock: { group, stop in
-//            stop.memory = false
-            
-            },
-            failureBlock: { error in
-                print("NOOOOOOO")
-        })
-        
     }
     
     @IBAction func detectPan(recognizer:UIPanGestureRecognizer) {

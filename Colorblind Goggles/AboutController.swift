@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import WebKit
 
-class AboutController: UIViewController,UIWebViewDelegate  {
+class AboutController: UIViewController, WKNavigationDelegate  {
     
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var closeButton: UIBarButtonItem!
     @IBAction func clickedCloseButton(sender: Any) {
         self.dismiss(animated: true, completion: {})
@@ -18,24 +19,30 @@ class AboutController: UIViewController,UIWebViewDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.delegate = self
+        webView.navigationDelegate = self
         loadAddressURL()
     }
     
     func loadAddressURL(){
         if let url = Bundle.main.url(forResource: "info", withExtension: "html") {
-            webView.loadRequest(NSURLRequest(url: url) as URLRequest)
+            webView.load(NSURLRequest(url: url) as URLRequest)
         }
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-        
-        let url: NSURL = request.url! as NSURL
-        let isExternalLink: Bool = url.scheme == "http" || url.scheme == "https" || url.scheme == "mailto"
-        if (isExternalLink && navigationType == UIWebView.NavigationType.linkClicked) {
-            return !UIApplication.shared.openURL(request.url!)
-        } else {
-            return true
-        }
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+            let url = navigationAction.request.url
+            guard url != nil else {
+                decisionHandler(.allow)
+                return
+            }
+
+            if url!.description.lowercased().starts(with: "http://") ||
+                url!.description.lowercased().starts(with: "https://")  {
+                decisionHandler(.cancel)
+                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            } else {
+                decisionHandler(.allow)
+            }
     }
+    
 }

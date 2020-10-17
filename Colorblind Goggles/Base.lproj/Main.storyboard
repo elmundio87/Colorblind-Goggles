@@ -164,25 +164,29 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBw-ZC-wFW">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD6-Lf-9GK">
                                 <rect key="frame" x="0.0" y="56" width="414" height="660"/>
-                                <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aD6-Lf-9GK" secondAttribute="trailing" id="0VU-fH-D8O"/>
                             <constraint firstItem="clp-Hj-KwN" firstAttribute="width" secondItem="Cok-rG-vQI" secondAttribute="width" id="3pL-Ig-eu1"/>
-                            <constraint firstItem="SD5-Jg-xee" firstAttribute="top" secondItem="dBw-ZC-wFW" secondAttribute="bottom" id="Cva-SN-qCA"/>
-                            <constraint firstItem="dBw-ZC-wFW" firstAttribute="leading" secondItem="Cok-rG-vQI" secondAttribute="leading" id="JUm-2a-Gjp"/>
-                            <constraint firstItem="dBw-ZC-wFW" firstAttribute="top" secondItem="clp-Hj-KwN" secondAttribute="bottom" id="JtW-NX-3Xr"/>
+                            <constraint firstItem="aD6-Lf-9GK" firstAttribute="top" secondItem="clp-Hj-KwN" secondAttribute="bottom" id="AqC-G5-k5n"/>
                             <constraint firstItem="clp-Hj-KwN" firstAttribute="top" secondItem="0nF-6M-z2D" secondAttribute="bottom" id="cOl-mM-5en"/>
-                            <constraint firstAttribute="trailing" secondItem="dBw-ZC-wFW" secondAttribute="trailing" id="e1R-Nk-sXv"/>
                             <constraint firstItem="clp-Hj-KwN" firstAttribute="centerX" secondItem="Cok-rG-vQI" secondAttribute="centerX" id="eWQ-mh-MA0"/>
+                            <constraint firstItem="SD5-Jg-xee" firstAttribute="top" secondItem="aD6-Lf-9GK" secondAttribute="bottom" id="n8a-hD-kk1"/>
+                            <constraint firstItem="aD6-Lf-9GK" firstAttribute="leading" secondItem="Cok-rG-vQI" secondAttribute="leading" id="qUL-rT-Qi4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="1pZ-Jq-jBO" id="8md-oM-RcG"/>
-                        <outlet property="webView" destination="dBw-ZC-wFW" id="P2H-Jx-Xlc"/>
+                        <outlet property="webView" destination="aD6-Lf-9GK" id="p1l-d8-aX5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1x-1J-4L5" userLabel="First Responder" sceneMemberID="firstResponder"/>

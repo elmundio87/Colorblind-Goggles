@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import AssetsLibrary
 import GPUImage
+import MultiSelectSegmentedControl
 
 struct FilterStruct {
     var name: String
@@ -55,6 +56,10 @@ struct FilterStruct {
 }
 
 class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
+    func multiSelect(_ multiSelectSegmentedControl: MultiSelectSegmentedControl, didChange value: Bool, at index: Int) {
+        // TODO
+    }
+    
     
     var activeFilters:[String] = ["Norm"]
     var videoCamera:GPUImageStillCamera?
@@ -86,24 +91,25 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         super.viewDidLoad()
 //        NotificationCenter.default.addObserver(self, selector: Selector("orientationChanged"), name: UIDevice.orientationDidChangeNotification, object: nil) TODO
         // Do any additional setup after loading the view, typically from a nib.
-        segment.selectedSegmentIndexes = NSIndexSet(index: 0)
         
+        segment.selectedSegmentIndexes = NSIndexSet(index: 0) as IndexSet
+
         var panRecognizer = UIPanGestureRecognizer(target:self, action:Selector(("detectPan:")))
         self.view.gestureRecognizers = [panRecognizer]
 
-        
+
         for filter in filterList {
             let screenTouch = UITapGestureRecognizer(target:self, action:Selector("incrementViewState:"))
             filter.view.addGestureRecognizer(screenTouch)
             containerView.addSubview(filter.view)
         }
-        
+
         view.bringSubviewToFront(containerView)
         view.bringSubviewToFront(bottomBar)
         view.bringSubviewToFront(infoButton)
 
         self.fitViewsOntoScreen()
-        
+
         let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         if(status == AVAuthorizationStatus.authorized) {
             cameraMagic(position: cameraPosition)
@@ -297,19 +303,19 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
                 self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             }
         }else{
-            
+
             var inputImage:UIImage = UIImage(imageLiteralResourceName: "test.jpg")
             stillImageSource = GPUImagePicture(image: inputImage)
             stillImageSource?.useNextFrameForImageCapture()
-            
-            
+
+
             for index in 0...(filterList.count - 1){
                 stillImageSource?.addTarget(self.filterList[index].filter)
                 self.filterList[index].filter.addTarget(self.filterList[index].view)
                 self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             }
             stillImageSource?.processImage()
-    
+
         }
         
     }
@@ -317,7 +323,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     func multiSelect(_ multiSelecSegmendedControl: MultiSelectSegmentedControl!, didChangeValue value: Bool, at index: UInt) {
         
         if(segment.selectedSegmentIndexes.count == 0){
-            segment.selectedSegmentIndexes = NSIndexSet(index: Int(index))
+            segment.selectedSegmentIndexes = NSIndexSet(index: Int(index)) as IndexSet
         }
         
         activeFilters = segment.selectedSegmentTitles as! [String]

@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,20 +17,18 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-FF-tRN">
                                 <rect key="frame" x="139" y="274" width="42" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-IU-73X">
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                             </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQG-Ww-O1H">
@@ -37,27 +37,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4HF-yM-XvF" customClass="MultiSelectSegmentedControl">
-                                            <rect key="frame" x="32" y="16" width="217" height="29"/>
-                                            <animations/>
-                                            <segments>
-                                                <segment title="Norm"/>
-                                                <segment title="Pro"/>
-                                                <segment title="Deu"/>
-                                                <segment title="Tri"/>
-                                                <segment title="Mono"/>
-                                            </segments>
-                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </segmentedControl>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NRt-GK-3DO" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
+                                            <rect key="frame" x="40" y="-34" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34L-fQ-V75" userLabel="Snap">
                                             <rect key="frame" x="542" y="-20" width="50" height="50"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="DhY-Rr-9NY"/>
                                                 <constraint firstAttribute="height" constant="40" id="tV2-4u-vnC"/>
                                             </constraints>
                                             <state key="normal" image="Compact Camera-100.png">
-                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="snapButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTa-Sb-Bvu"/>
@@ -65,31 +57,25 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVd-ig-AkX" userLabel="Flip">
                                             <rect key="frame" x="484" y="-20" width="50" height="50"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="0XA-gi-Idt"/>
                                                 <constraint firstAttribute="height" constant="40" id="XQN-Hz-vbe"/>
                                             </constraints>
                                             <state key="normal" image="Switch Camera-100.png">
-                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="flipButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0kX-3D-tlF"/>
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <animations/>
                                     <constraints>
-                                        <constraint firstItem="4HF-yM-XvF" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="8ho-cS-UOg"/>
                                         <constraint firstItem="xVd-ig-AkX" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="9cb-Uc-MBU"/>
-                                        <constraint firstItem="4HF-yM-XvF" firstAttribute="leading" secondItem="P1V-dV-pgO" secondAttribute="leading" constant="20" id="fM7-IY-Jfc"/>
-                                        <constraint firstItem="4HF-yM-XvF" firstAttribute="trailing" secondItem="xVd-ig-AkX" secondAttribute="leading" constant="-20" id="nto-Z4-fgL"/>
                                         <constraint firstItem="xVd-ig-AkX" firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="leading" constant="-20" id="vDO-Ke-Hct"/>
                                         <constraint firstItem="34L-fQ-V75" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="wo2-lV-paE"/>
                                         <constraint firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="trailing" constant="20" id="xfw-yo-aCj"/>
                                     </constraints>
                                 </view>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="siV-9i-ped"/>
                                 </constraints>
@@ -97,7 +83,6 @@
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuP-30-M4I" userLabel="Info">
                                 <rect key="frame" x="210" y="10" width="100" height="100"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="LpV-Qa-93Y"/>
                                     <constraint firstAttribute="width" constant="40" id="nWL-A3-fOn"/>
@@ -108,8 +93,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9e0-Y8-wHz"/>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Np7-CQ-ITu"/>
@@ -132,12 +116,12 @@
                         <outlet property="containerView" destination="Txe-IU-73X" id="m7q-sz-bzs"/>
                         <outlet property="infoButton" destination="vuP-30-M4I" id="4bq-dp-DRR"/>
                         <outlet property="percentLabel" destination="2LV-FF-tRN" id="4Uh-8F-RUo"/>
-                        <outlet property="segment" destination="4HF-yM-XvF" id="f6r-Rr-6RR"/>
+                        <outlet property="segment" destination="NRt-GK-3DO" id="6Jv-7s-sMl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="353"/>
+            <point key="canvasLocation" x="4.3478260869565224" y="236.38392857142856"/>
         </scene>
         <!--About Controller-->
         <scene sceneID="aaO-6t-ULZ">
@@ -148,12 +132,11 @@
                         <viewControllerLayoutGuide type="bottom" id="SD5-Jg-xee"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Cok-rG-vQI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clp-Hj-KwN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <animations/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="About" id="HRJ-My-RB5">
                                         <barButtonItem key="rightBarButtonItem" title="Close" id="1pZ-Jq-jBO">
@@ -165,13 +148,11 @@
                                 </items>
                             </navigationBar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBw-ZC-wFW">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="clp-Hj-KwN" firstAttribute="width" secondItem="Cok-rG-vQI" secondAttribute="width" id="3pL-Ig-eu1"/>
                             <constraint firstItem="SD5-Jg-xee" firstAttribute="top" secondItem="dBw-ZC-wFW" secondAttribute="bottom" id="Cva-SN-qCA"/>
@@ -189,44 +170,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1x-1J-4L5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="407" y="295"/>
-        </scene>
-        <!--Root View Controller-->
-        <scene sceneID="oQK-gh-nTU">
-            <objects>
-                <tableViewController id="E02-i5-RN4" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jmL-VG-scq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DXG-32-Rib">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DXG-32-Rib" id="qNX-Ou-i0K">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="E02-i5-RN4" id="pl2-dq-oJe"/>
-                            <outlet property="delegate" destination="E02-i5-RN4" id="idq-uS-eic"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="kVA-Hh-M09"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YIR-aS-MGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="987" y="298"/>
+            <point key="canvasLocation" x="749" y="236"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="NRt-GK-3DO">
+            <size key="intrinsicContentSize" width="160" height="32"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Compact Camera-100.png" width="100" height="100"/>
         <image name="Info-100.png" width="100" height="100"/>
         <image name="Switch Camera-100.png" width="100" height="100"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

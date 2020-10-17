@@ -103,12 +103,13 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         }
         segment.selectedSegmentIndexes = NSIndexSet(index: 0) as IndexSet
 
-        var panRecognizer = UIPanGestureRecognizer(target:self, action:Selector(("detectPan:")))
+        let panRecognizer = UIPanGestureRecognizer(target:self, action: #selector(self.detectPan))
         self.view.gestureRecognizers = [panRecognizer]
 
 
         for filter in filterList {
-            let screenTouch = UITapGestureRecognizer(target:self, action:Selector("incrementViewState:"))
+            let screenTouch = UITapGestureRecognizer(target:self, action:#selector(self.incrementViewState))
+            
             filter.view.addGestureRecognizer(screenTouch)
             containerView.addSubview(filter.view)
         }
@@ -216,7 +217,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
        
     }
     
-    func incrementViewState(sender: AnyObject){
+    @objc func incrementViewState(sender: AnyObject){
 
         self.viewState += 1
         

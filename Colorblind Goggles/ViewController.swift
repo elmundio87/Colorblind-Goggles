@@ -93,7 +93,8 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        NotificationCenter.default.addObserver(self, selector: Selector("orientationChanged"), name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
+    
         // Do any additional setup after loading the view, typically from a nib.
         
         segment.items = filterList.map{
@@ -145,11 +146,11 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         self.fitViewsOntoScreen(frame: frame)
     }
     
+
+    
     func fitViewsOntoScreen(frame:CGSize){
-        let currentOrientation = UIApplication.shared.statusBarOrientation
         self.filterList = setHiddenOnFilterStructs(activeFilters: self.activeFilters)
         let videoViews = getVisibleFilterStructs(_filterList: filterList)
-        
         
         filterList[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
         filterList[1].view.frame = CGRect(x: 0.0, y: frame.height/5, width: frame.width, height: frame.height)
@@ -157,9 +158,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         filterList[3].view.frame = CGRect(x: 0.0, y: frame.height/5 * 3, width: frame.width, height: frame.height)
         filterList[4].view.frame = CGRect(x: 0.0, y: frame.height/5 * 4, width: frame.width, height: frame.height)
 
-        
-        
-        if(currentOrientation == .portrait){
+        if(frame.height >= frame.width){
         switch videoViews.count{
             
         case  1:
@@ -237,7 +236,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
             }
         default:
             self.viewState = -1
-//            incrementViewState(sender: true) TODO
+            incrementViewState(sender: self)
         }
         
         
@@ -431,7 +430,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         }
     }
     
-    func orientationChanged(){
+    @objc func orientationChanged(){
         fitViewsOntoScreen()
         let orientation = UIApplication.shared.statusBarOrientation
         videoCamera?.outputImageOrientation = orientation

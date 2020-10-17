@@ -18,7 +18,7 @@ enum FilterType {
     case Monochromatic
 }
 
-    func RGBAtoLMSA(R R:Double,G:Double,B:Double,A:Double) -> (L:Double,M:Double,S:Double,A:Double){
+    func RGBAtoLMSA(R:Double,G:Double,B:Double,A:Double) -> (L:Double,M:Double,S:Double,A:Double){
     let L = (17.8824 * (R)) + (43.5161 * (G)) + (4.11935 * (B))
     let M = (3.45565 * (R)) + (27.1554 * (G)) + (3.86714 * (B))
     let S = (0.0299566 * (R)) + (0.184309 * (G)) + (1.46709 * (B))
@@ -35,19 +35,19 @@ enum FilterType {
         return val
     }
     
-    func LMSAtoRGBA(L L:Double,M:Double,S:Double,A:Double) -> (R:Double,G:Double,B:Double,A:Double){
+    func LMSAtoRGBA(L:Double,M:Double,S:Double,A:Double) -> (R:Double,G:Double,B:Double,A:Double){
     var R = (0.080944 * (L)) - (0.130504 * (M)) + (0.116721 * (S))
     var G = (-0.0102485 * (L)) + (0.0540194 * (M)) - (0.113615 * (S))
     var B = (-0.000365294 * (L)) - (0.00412163 * (M)) + (0.693513 * (S))
     
-    R = minMaxRGBA(R)
-    G = minMaxRGBA(G)
-    B = minMaxRGBA(B)
+        R = minMaxRGBA(val: R)
+        G = minMaxRGBA(val: G)
+        B = minMaxRGBA(val: B)
     
     return (R,G,B,A)
 }
     
-    func FilterColour(R R:Double,G:Double,B:Double,A:Double, f:FilterType) -> (R:Double,G:Double,B:Double,A:Double){
+    func FilterColour(R:Double,G:Double,B:Double,A:Double, f:FilterType) -> (R:Double,G:Double,B:Double,A:Double){
         var (L,M,S,A) = RGBAtoLMSA(R: R, G: G, B: B,A:A)
         
         switch f{

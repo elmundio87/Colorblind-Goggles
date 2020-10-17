@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
-import AssetsLibrary
+import Photos
 import GPUImage
+import MultiSelectSegmentedControl
 
 struct FilterStruct {
     var name: String
@@ -27,42 +28,49 @@ struct FilterStruct {
         self.shader = shader
         self.filter = GPUImageFilter(fragmentShaderFromFile: self.shader)
         self.view = GPUImageView()
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.black
         self.filter.addTarget(self.view)
         self.label = UILabel(frame: CGRect(x:20.0,y:0.0,width:200.0,height:50.0))
-        self.setLabelTitle(self.name)
+        self.setLabelTitle(title: self.name)
         self.view.addSubview(label)
-        self.view.fillMode = kGPUImageFillModePreserveAspectRatioAndFill
+        self.view.fillMode = GPUImageFillModeType.preserveAspectRatioAndFill
     }
     
     mutating func setHidden(hidden: Bool){
         self.hidden = hidden
-        self.view.hidden = hidden
+        self.view.isHidden = hidden
     }
     
     mutating func setLabelTitle(title: String){
         let font:UIFont = UIFont(name: "Helvetica-Bold", size: 18.0)!
         let shadow : NSShadow = NSShadow()
-        shadow.shadowOffset = CGSizeMake(1.0, 1.0)
-        shadow.shadowColor = UIColor.blackColor()
+        shadow.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        shadow.shadowColor = UIColor.black
         let attributes = [
-            NSFontAttributeName: font,
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSShadowAttributeName : shadow]
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.shadow : shadow]
         let title = NSAttributedString(string: title , attributes: attributes)
         label.attributedText = title
     }
 }
 
 class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
+    func multiSelect(_ multiSelectSegmentedControl: MultiSelectSegmentedControl, didChange value: Bool, at index: Int) {
+        if(segment.selectedSegmentIndexes.count == 0){
+            segment.selectedSegmentIndexes = NSIndexSet(index: Int(index)) as IndexSet
+        }
+        
+        activeFilters = segment.selectedSegmentTitles
+        fitViewsOntoScreen()
+    }
     
     var activeFilters:[String] = ["Norm"]
     var videoCamera:GPUImageStillCamera?
     var stillImageSource:GPUImagePicture?
-    var library:ALAssetsLibrary =  ALAssetsLibrary()
-    var cameraPosition: AVCaptureDevicePosition = .Back
+    var cameraPosition: AVCaptureDevice.Position = .back
     var percent = 100
-    var lastLocation:CGPoint = CGPointMake(0, 0)
+    var lastLocation:CGPoint = CGPoint(x:0, y:0)
     var viewState:Int = 0
    
     
@@ -84,39 +92,46 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChanged", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
+    
         // Do any additional setup after loading the view, typically from a nib.
-        segment.selectedSegmentIndexes = NSIndexSet(index: 0)
         
-        var panRecognizer = UIPanGestureRecognizer(target:self, action:"detectPan:")
+        segment.items = filterList.map{
+            (filter) -> String in
+            return filter.shortName
+        }
+        segment.selectedSegmentIndexes = NSIndexSet(index: 0) as IndexSet
+
+        let panRecognizer = UIPanGestureRecognizer(target:self, action: #selector(self.detectPan))
         self.view.gestureRecognizers = [panRecognizer]
 
-        
+
         for filter in filterList {
-            let screenTouch = UITapGestureRecognizer(target:self, action:"incrementViewState:")
+            let screenTouch = UITapGestureRecognizer(target:self, action:#selector(self.incrementViewState))
+            
             filter.view.addGestureRecognizer(screenTouch)
             containerView.addSubview(filter.view)
         }
-        
+
         view.bringSubviewToFront(containerView)
         view.bringSubviewToFront(bottomBar)
         view.bringSubviewToFront(infoButton)
 
         self.fitViewsOntoScreen()
-        
-        let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
-        if(status == AVAuthorizationStatus.Authorized) {
-            cameraMagic(cameraPosition)
-        } else if(status == AVAuthorizationStatus.Denied){
+
+        let status:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+        if(status == AVAuthorizationStatus.authorized) {
+            cameraMagic(position: cameraPosition)
+        } else if(status == AVAuthorizationStatus.denied){
             permissionDenied()
-        } else if(status == AVAuthorizationStatus.Restricted){
+        } else if(status == AVAuthorizationStatus.restricted){
             // restricted
-        } else if(status == AVAuthorizationStatus.NotDetermined){
+        } else if(status == AVAuthorizationStatus.notDetermined){
             // not determined
-            AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: {
+            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: {
                 granted in
                 if(granted){
-                    self.cameraMagic(self.cameraPosition)
+                    self.cameraMagic(position: self.cameraPosition)
                 } else {
                     print("Not granted access")
                 }
@@ -128,46 +143,44 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     func fitViewsOntoScreen(){
         let frame:CGSize = view.bounds.size
-        self.fitViewsOntoScreen(frame)
+        self.fitViewsOntoScreen(frame: frame)
     }
     
-    func fitViewsOntoScreen(frame:CGSize){
-        let currentOrientation = UIApplication.sharedApplication().statusBarOrientation
-        self.filterList = setHiddenOnFilterStructs(self.activeFilters)
-        let videoViews = getVisibleFilterStructs(filterList)
-        
-        
-        filterList[0].view.frame = CGRectMake(0.0, 0.0, frame.width, frame.height)
-        filterList[1].view.frame = CGRectMake(0.0, frame.height/5, frame.width, frame.height)
-        filterList[2].view.frame = CGRectMake(0.0, frame.height/5 * 2, frame.width, frame.height)
-        filterList[3].view.frame = CGRectMake(0.0, frame.height/5 * 3, frame.width, frame.height)
-        filterList[4].view.frame = CGRectMake(0.0, frame.height/5 * 4, frame.width, frame.height)
 
+    
+    func fitViewsOntoScreen(frame:CGSize){
+        self.filterList = setHiddenOnFilterStructs(activeFilters: self.activeFilters)
+        let videoViews = getVisibleFilterStructs(_filterList: filterList)
         
-        
-        if(currentOrientation == .Portrait){
+        filterList[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
+        filterList[1].view.frame = CGRect(x: 0.0, y: frame.height/5, width: frame.width, height: frame.height)
+        filterList[2].view.frame = CGRect(x: 0.0, y: frame.height/5 * 2, width: frame.width, height: frame.height)
+        filterList[3].view.frame = CGRect(x: 0.0, y: frame.height/5 * 3, width: frame.width, height: frame.height)
+        filterList[4].view.frame = CGRect(x: 0.0, y: frame.height/5 * 4, width: frame.width, height: frame.height)
+
+        if(frame.height >= frame.width){
         switch videoViews.count{
             
         case  1:
-            videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width, frame.height)
+            videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
         case  2:
-            videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width, frame.height)
-            videoViews[1].view.frame = CGRectMake(0.0, frame.height/2, frame.width, frame.height)
+            videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
+            videoViews[1].view.frame = CGRect(x: 0.0, y: frame.height/2, width: frame.width, height: frame.height)
         case  3:
-            videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width, frame.height)
-            videoViews[1].view.frame = CGRectMake(0.0, frame.height/3, frame.width, frame.height)
-            videoViews[2].view.frame = CGRectMake(0.0, frame.height/3 * 2, frame.width, frame.height)
+            videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
+            videoViews[1].view.frame = CGRect(x: 0.0, y: frame.height/3, width: frame.width, height: frame.height)
+            videoViews[2].view.frame = CGRect(x: 0.0, y: frame.height/3 * 2, width: frame.width, height: frame.height)
         case 4:
-            videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width/2, frame.height/2)
-            videoViews[1].view.frame = CGRectMake(frame.width/2, 0.0, frame.width/2, frame.height/2)
-            videoViews[2].view.frame = CGRectMake(0.0, frame.height/2, frame.width/2, frame.height/2)
-            videoViews[3].view.frame = CGRectMake(frame.width/2, frame.height/2, frame.width/2, frame.height/2)
+            videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width/2, height: frame.height/2)
+            videoViews[1].view.frame = CGRect(x: frame.width/2, y: 0.0, width: frame.width/2, height: frame.height/2)
+            videoViews[2].view.frame = CGRect(x: 0.0, y: frame.height/2, width: frame.width/2, height: frame.height/2)
+            videoViews[3].view.frame = CGRect(x: frame.width/2, y: frame.height/2, width: frame.width/2, height: frame.height/2)
         case 5:
-            videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width, frame.height)
-            videoViews[1].view.frame = CGRectMake(0.0, frame.height/5, frame.width, frame.height)
-            videoViews[2].view.frame = CGRectMake(0.0, frame.height/5 * 2, frame.width, frame.height)
-            videoViews[3].view.frame = CGRectMake(0.0, frame.height/5 * 3, frame.width, frame.height)
-            videoViews[4].view.frame = CGRectMake(0.0, frame.height/5 * 4, frame.width, frame.height)
+            videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
+            videoViews[1].view.frame = CGRect(x: 0.0, y: frame.height/5, width: frame.width, height: frame.height)
+            videoViews[2].view.frame = CGRect(x: 0.0, y: frame.height/5 * 2, width: frame.width, height: frame.height)
+            videoViews[3].view.frame = CGRect(x: 0.0, y: frame.height/5 * 3, width: frame.width, height: frame.height)
+            videoViews[4].view.frame = CGRect(x: 0.0, y: frame.height/5 * 4, width: frame.width, height: frame.height)
             
         default:
             print("should not be here...")
@@ -176,25 +189,25 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
             switch videoViews.count{
                 
             case  1:
-                videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width, frame.height)
+                videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
             case  2:
-                videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width, frame.height)
-                videoViews[1].view.frame = CGRectMake(frame.width * 1/2, 0.0, frame.width, frame.height)
+                videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
+                videoViews[1].view.frame = CGRect(x: frame.width * 1/2, y: 0.0, width: frame.width, height: frame.height)
             case  3:
-                videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width, frame.height)
-                videoViews[1].view.frame = CGRectMake(frame.width * 1/3, 0.0, frame.width, frame.height)
-                videoViews[2].view.frame = CGRectMake(frame.width * 2/3, 0.0, frame.width, frame.height)
+                videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
+                videoViews[1].view.frame = CGRect(x: frame.width * 1/3, y: 0.0, width: frame.width, height: frame.height)
+                videoViews[2].view.frame = CGRect(x: frame.width * 2/3, y: 0.0, width: frame.width, height: frame.height)
             case 4:
-                videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width/2, frame.height/2)
-                videoViews[1].view.frame = CGRectMake(frame.width/2, 0.0, frame.width/2, frame.height/2)
-                videoViews[2].view.frame = CGRectMake(0.0, frame.height/2, frame.width/2, frame.height/2)
-                videoViews[3].view.frame = CGRectMake(frame.width/2, frame.height/2, frame.width/2, frame.height/2)
+                videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width/2, height: frame.height/2)
+                videoViews[1].view.frame = CGRect(x: frame.width/2, y: 0.0, width: frame.width/2, height: frame.height/2)
+                videoViews[2].view.frame = CGRect(x: 0.0, y: frame.height/2, width: frame.width/2, height: frame.height/2)
+                videoViews[3].view.frame = CGRect(x: frame.width/2, y: frame.height/2, width: frame.width/2, height: frame.height/2)
             case 5:
-                videoViews[0].view.frame = CGRectMake(0.0, 0.0, frame.width, frame.height)
-                videoViews[1].view.frame = CGRectMake(frame.width * 1/5, 0.0, frame.width, frame.height)
-                videoViews[2].view.frame = CGRectMake(frame.width * 2/5, 0.0, frame.width, frame.height)
-                videoViews[3].view.frame = CGRectMake(frame.width * 3/5, 0.0, frame.width, frame.height)
-                videoViews[4].view.frame = CGRectMake(frame.width * 4/5, 0.0, frame.width, frame.height)
+                videoViews[0].view.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: frame.height)
+                videoViews[1].view.frame = CGRect(x: frame.width * 1/5, y: 0.0, width: frame.width, height: frame.height)
+                videoViews[2].view.frame = CGRect(x: frame.width * 2/5, y: 0.0, width: frame.width, height: frame.height)
+                videoViews[3].view.frame = CGRect(x: frame.width * 3/5, y: 0.0, width: frame.width, height: frame.height)
+                videoViews[4].view.frame = CGRect(x: frame.width * 4/5, y: 0.0, width: frame.width, height: frame.height)
                 
             default:
                 print("should not be here...")
@@ -203,27 +216,27 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
        
     }
     
-    func incrementViewState(sender: AnyObject){
+    @objc func incrementViewState(sender: AnyObject){
 
         self.viewState += 1
         
         switch (self.viewState){
         case ViewState.ViewAll.rawValue:
-            bottomBar.hidden = false
-            infoButton.hidden = false
+            bottomBar.isHidden = false
+            infoButton.isHidden = false
             for filter in filterList{
-                filter.label.hidden = false
+                filter.label.isHidden = false
             }
         case ViewState.BottomBarHidden.rawValue:
-            bottomBar.hidden = true
-            infoButton.hidden = true
+            bottomBar.isHidden = true
+            infoButton.isHidden = true
         case ViewState.FilterLabelsHidden.rawValue:
             for filter in filterList{
-                filter.label.hidden = true
+                filter.label.isHidden = true
             }
         default:
             self.viewState = -1
-            incrementViewState(true)
+            incrementViewState(sender: self)
         }
         
         
@@ -231,16 +244,16 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     }
     
     func permissionDenied(){
-        let alertVC = UIAlertController(title: "Permission to access camera was denied", message: "You need to allow Colorblind Goggles to use the camera in Settings to use it", preferredStyle: .Alert)
-        alertVC.addAction(UIAlertAction(title: "Open Settings", style: .Default) {
+        let alertVC = UIAlertController(title: "Permission to access camera was denied", message: "You need to allow Colorblind Goggles to use the camera in Settings to use it", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "Open Settings", style: .default) {
             value in
-            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+            UIApplication.shared.open(NSURL(string: UIApplication.openSettingsURLString)! as URL, options: [:], completionHandler: nil)
             })
         
-        self.presentViewController(alertVC, animated: true, completion: nil)
+        self.present(alertVC, animated: true, completion: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         segment.delegate = self
     }
@@ -258,9 +271,9 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         //set hidden on all filterstructs
         
         for index in 0...(filterList.count - 1){
-            self.filterList[index].setHidden(true)
+            self.filterList[index].setHidden(hidden: true)
             if(activeFilters.contains(filterList[index].shortName)){
-                self.filterList[index].setHidden(false)
+                self.filterList[index].setHidden(hidden: false)
             }
         }
         
@@ -278,122 +291,80 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     }
     
 
-    func cameraMagic(position: AVCaptureDevicePosition){
-        let orientation = UIApplication.sharedApplication().statusBarOrientation
-        self.cameraMagic(position, orientation: orientation)
+    func cameraMagic(position: AVCaptureDevice.Position){
+        let orientation = UIApplication.shared.statusBarOrientation
+        self.cameraMagic(position: position, orientation: orientation)
     }
     
     
-    func cameraMagic(position: AVCaptureDevicePosition, orientation: UIInterfaceOrientation){
-        videoCamera = GPUImageStillCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: position)
+    func cameraMagic(position: AVCaptureDevice.Position, orientation: UIInterfaceOrientation){
+        videoCamera = GPUImageStillCamera(sessionPreset: AVCaptureSession.Preset.high.rawValue, cameraPosition: position)
         
         if(videoCamera != nil){
             videoCamera!.outputImageOrientation = orientation
         
-            videoCamera?.startCameraCapture()
+            videoCamera?.startCapture()
 
             for index in 0...(filterList.count - 1){
                 videoCamera?.addTarget(self.filterList[index].filter)
                 self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             }
         }else{
-            
-            var inputImage:UIImage = UIImage(imageLiteral: "test.jpg")
+
+            let inputImage:UIImage = UIImage(imageLiteralResourceName: "test.jpg")
             stillImageSource = GPUImagePicture(image: inputImage)
             stillImageSource?.useNextFrameForImageCapture()
-            
-            
+
+
             for index in 0...(filterList.count - 1){
                 stillImageSource?.addTarget(self.filterList[index].filter)
                 self.filterList[index].filter.addTarget(self.filterList[index].view)
                 self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             }
             stillImageSource?.processImage()
-    
+
         }
         
-    }
-    
-    func multiSelect(multiSelecSegmendedControl: MultiSelectSegmentedControl!, didChangeValue value: Bool, atIndex index: UInt) {
-        
-        if(segment.selectedSegmentIndexes.count == 0){
-            segment.selectedSegmentIndexes = NSIndexSet(index: Int(index))
-        }
-        
-        activeFilters = segment.selectedSegmentTitles as! [String]
-        print(activeFilters)
-        fitViewsOntoScreen()
     }
 
-    @IBAction func snapButtonTouchUpInside(sender: AnyObject) {
+    @IBAction func snapButtonTouchUpInside(_ sender: Any) {
         let view = containerView
-        let viewImage:UIImage = view.pb_takeSnapshot()
-        saveImageToAlbum(viewImage)
+        let viewImage:UIImage = view!.pb_takeSnapshot()
+        saveImageToAlbum(image: viewImage)
         
         let tempView:UIImageView = UIImageView(image: viewImage)
         self.view.addSubview(tempView)
-        tempView.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+        tempView.frame = CGRect(x: 0.0, y: 0.0, width: view!.bounds.width, height: view!.bounds.height)
         self.view.bringSubviewToFront(tempView)
 
-        let endRect:CGRect = CGRectMake(view.bounds.width-40, view.bounds.height, 40.0, 10.0 );
-        tempView.genieInTransitionWithDuration(0.7, destinationRect: endRect, destinationEdge: BCRectEdge.Top, completion: {
+        let endRect:CGRect = CGRect(x: view!.bounds.width-40, y: view!.bounds.height, width: 40.0, height: 10.0 );
+        tempView.genieInTransition(withDuration: 0.7, destinationRect: endRect, destinationEdge: BCRectEdge.top, completion: {
             tempView.removeFromSuperview()
         })
-        
     }
     
-    @IBAction func flipButtonTouchUpInside(sender: AnyObject) {
+    @IBAction func flipButtonTouchUpInside(_ sender: Any) {
         toggleCameraPosition()
-        videoCamera?.stopCameraCapture()
-        cameraMagic(cameraPosition)
+        videoCamera?.stopCapture()
+        cameraMagic(position: cameraPosition)
     }
     
     func saveImageToAlbum(image:UIImage) {
-        library.writeImageToSavedPhotosAlbum(image.CGImage, orientation: ALAssetOrientation(rawValue: image.imageOrientation.rawValue)!, completionBlock:saveDone)
-    }
-
-
-    func saveDone(assetURL:NSURL!, error:NSError!){
-        print("saveDone")
-        library.assetForURL(assetURL, resultBlock: self.saveToAlbum, failureBlock: nil)
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
     
     func toggleCameraPosition(){
-        if(cameraPosition == AVCaptureDevicePosition.Back){
-            cameraPosition = AVCaptureDevicePosition.Front
+        if(cameraPosition == AVCaptureDevice.Position.back){
+            cameraPosition = AVCaptureDevice.Position.front
         }else{
-            cameraPosition = AVCaptureDevicePosition.Back
+            cameraPosition = AVCaptureDevice.Position.back
         }
     }
     
-    func saveToAlbum(asset:ALAsset!){
-        
-        library.enumerateGroupsWithTypes(ALAssetsGroupAlbum, usingBlock: { group, stop in
-            stop.memory = false
-            if(group != nil){
-                let str = group.valueForProperty(ALAssetsGroupPropertyName) as! String
-                if(str == "MY_ALBUM_NAME"){
-                    group!.addAsset(asset!)
-                    let assetRep:ALAssetRepresentation = asset.defaultRepresentation()
-                    let iref = assetRep.fullResolutionImage().takeUnretainedValue()
-                    let image:UIImage =  UIImage(CGImage:iref)
-                    
-                }
-                
-            }
-            
-            },
-            failureBlock: { error in
-                print("NOOOOOOO")
-        })
-        
-    }
-    
     @IBAction func detectPan(recognizer:UIPanGestureRecognizer) {
-        let translation = recognizer.translationInView(self.view)
         let midpoint = containerView.bounds.height / 2
-        let current = recognizer.locationInView(containerView).y
-        if let view = recognizer.view {
+        let current = recognizer.location(in: containerView).y
+        if recognizer.view != nil {
             percent =  (Int)((midpoint - current) * 0.3) + 50
             
         }
@@ -413,7 +384,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         view.bringSubviewToFront(percentLabel)
         percentLabel.text = String(percent) + "%"
         
-        UIView.animateWithDuration(1.0, delay: 1.0, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseOut, animations: {
             self.percentLabel.alpha = 0
             }, completion: nil)
            
@@ -421,16 +392,16 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
             
             self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             if(percent < 100){
-                self.filterList[index].setLabelTitle(self.filterList[index].name + " (" + String(percent) + "%)")
+                self.filterList[index].setLabelTitle(title: self.filterList[index].name + " (" + String(percent) + "%)")
             }else{
-                self.filterList[index].setLabelTitle(self.filterList[index].name)
+                self.filterList[index].setLabelTitle(title: self.filterList[index].name)
             }
         }
     }
     
-    func orientationChanged(){
+    @objc func orientationChanged(){
         fitViewsOntoScreen()
-        let orientation = UIApplication.sharedApplication().statusBarOrientation
+        let orientation = UIApplication.shared.statusBarOrientation
         videoCamera?.outputImageOrientation = orientation
     }
 
@@ -439,13 +410,13 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
 extension UIView {
     
     func pb_takeSnapshot() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.mainScreen().scale)
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
         
-        drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
         
         // old style: layer.renderInContext(UIGraphicsGetCurrentContext())
         
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
     }

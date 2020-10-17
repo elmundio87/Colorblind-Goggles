@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		481968B81C08B5070058F708 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481968B51C08B48B0058F708 /* GPUImage.framework */; };
-		481968BA1C08B5490058F708 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 481968B51C08B48B0058F708 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2CDA988A557824CD3D9E77AB /* Pods_Colorblind_GogglesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB25C90B72906D11FF70FBD /* Pods_Colorblind_GogglesTests.framework */; };
 		481968C01C08BDEF0058F708 /* Protanopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968BF1C08BDEF0058F708 /* Protanopia.fsh */; };
 		481968C21C08C5850058F708 /* Deuteranopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C11C08C5850058F708 /* Deuteranopia.fsh */; };
 		481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C31C08C5930058F708 /* Tritanopia.fsh */; };
 		481968C61C08C5AD0058F708 /* Mono.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C51C08C5AD0058F708 /* Mono.fsh */; };
 		481968C81C08C9790058F708 /* Normal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C71C08C9790058F708 /* Normal.fsh */; };
-		4819691B1C09385A0058F708 /* MultiSelectSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4819691A1C09385A0058F708 /* MultiSelectSegmentedControl.m */; };
 		4879EA1D1C0E3CD800A25E4F /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4879EA1C1C0E3CD800A25E4F /* AboutController.swift */; };
 		4879EA1F1C0E3F1600A25E4F /* Info-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4879EA1E1C0E3F1600A25E4F /* Info-100.png */; };
 		4879EA211C0E475A00A25E4F /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = 4879EA201C0E475A00A25E4F /* info.html */; };
@@ -35,31 +33,12 @@
 		48DA8FC81C07C72500D5A4C7 /* Colorblind_GogglesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FC71C07C72500D5A4C7 /* Colorblind_GogglesTests.swift */; };
 		48DA8FD31C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */; };
 		48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */; };
-		48DA8FE51C07D67100D5A4C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */; };
+		48FACF032539EF1F002808AC /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 48FACEF02539DFD5002808AC /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95E3463B8C5F1D12550D3136 /* Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F017D6F67574E5AAF044CBEF /* Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework */; };
+		E6DEE6323A9EFED1C7CE9CB2 /* Pods_Colorblind_Goggles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819469F7B459362832F6BC2B /* Pods_Colorblind_Goggles.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		481968B21C08B48B0058F708 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
-			remoteInfo = GPUImage;
-		};
-		481968B41C08B48B0058F708 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCE209E51943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
-		};
-		481968B61C08B4F50058F708 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCE209E41943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
-		};
 		48DA8FC41C07C72500D5A4C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 48DA8FA71C07C72400D5A4C7 /* Project object */;
@@ -74,6 +53,27 @@
 			remoteGlobalIDString = 48DA8FAE1C07C72400D5A4C7;
 			remoteInfo = "Colorblind Goggles";
 		};
+		48FACEED2539DFD5002808AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		48FACEEF2539DFD5002808AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		48FACEF62539DFED002808AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,22 +83,22 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				481968BA1C08B5490058F708 /* GPUImage.framework in CopyFiles */,
+				48FACF032539EF1F002808AC /* GPUImage.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		11C2F230AA3254054D4F2AFF /* Pods-Colorblind Goggles-Colorblind GogglesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorblind Goggles-Colorblind GogglesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Colorblind Goggles-Colorblind GogglesUITests/Pods-Colorblind Goggles-Colorblind GogglesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2EB25C90B72906D11FF70FBD /* Pods_Colorblind_GogglesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Colorblind_GogglesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CC05A9614907E2BF27E4405 /* Pods-Colorblind Goggles-Colorblind GogglesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorblind Goggles-Colorblind GogglesUITests.release.xcconfig"; path = "Target Support Files/Pods-Colorblind Goggles-Colorblind GogglesUITests/Pods-Colorblind Goggles-Colorblind GogglesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		481968BF1C08BDEF0058F708 /* Protanopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Protanopia.fsh; sourceTree = "<group>"; };
 		481968C11C08C5850058F708 /* Deuteranopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Deuteranopia.fsh; sourceTree = "<group>"; };
 		481968C31C08C5930058F708 /* Tritanopia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Tritanopia.fsh; sourceTree = "<group>"; };
 		481968C51C08C5AD0058F708 /* Mono.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Mono.fsh; sourceTree = "<group>"; };
 		481968C71C08C9790058F708 /* Normal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Normal.fsh; sourceTree = "<group>"; };
 		481969191C09385A0058F708 /* Colorblind Goggles-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Colorblind Goggles-Bridging-Header.h"; sourceTree = "<group>"; };
-		4819691A1C09385A0058F708 /* MultiSelectSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectSegmentedControl.m; sourceTree = "<group>"; };
-		4819691C1C0938810058F708 /* MultiSelectSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiSelectSegmentedControl.h; sourceTree = "<group>"; };
 		4879EA1C1C0E3CD800A25E4F /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		4879EA1E1C0E3F1600A25E4F /* Info-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-100.png"; sourceTree = "<group>"; };
 		4879EA201C0E475A00A25E4F /* info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = info.html; sourceTree = "<group>"; };
@@ -126,7 +126,13 @@
 		48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorblind_GogglesUITests.swift; sourceTree = "<group>"; };
 		48DA8FD41C07C72500D5A4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorblindFilter.swift; sourceTree = "<group>"; };
-		48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		819469F7B459362832F6BC2B /* Pods_Colorblind_Goggles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Colorblind_Goggles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A8E0EF092751A46C824F119 /* Pods-Colorblind GogglesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorblind GogglesTests.debug.xcconfig"; path = "Target Support Files/Pods-Colorblind GogglesTests/Pods-Colorblind GogglesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9613D86FD828D136F572DACC /* Pods-Colorblind Goggles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorblind Goggles.debug.xcconfig"; path = "Target Support Files/Pods-Colorblind Goggles/Pods-Colorblind Goggles.debug.xcconfig"; sourceTree = "<group>"; };
+		C2B9A182D3477910A8EDAD56 /* Pods-Colorblind GogglesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorblind GogglesTests.release.xcconfig"; path = "Target Support Files/Pods-Colorblind GogglesTests/Pods-Colorblind GogglesTests.release.xcconfig"; sourceTree = "<group>"; };
+		F017D6F67574E5AAF044CBEF /* Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F29927CB8EA930B68C856D1D /* Pods-Colorblind Goggles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorblind Goggles.release.xcconfig"; path = "Target Support Files/Pods-Colorblind Goggles/Pods-Colorblind Goggles.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4890D30B1C0B75040055E08D /* QuartzCore.framework in Frameworks */,
-				481968B81C08B5070058F708 /* GPUImage.framework in Frameworks */,
+				E6DEE6323A9EFED1C7CE9CB2 /* Pods_Colorblind_Goggles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CDA988A557824CD3D9E77AB /* Pods_Colorblind_GogglesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,21 +157,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E3463B8C5F1D12550D3136 /* Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		481968AD1C08B48B0058F708 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				481968B31C08B48B0058F708 /* libGPUImage.a */,
-				481968B51C08B48B0058F708 /* GPUImage.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4890D30C1C0B7E620055E08D /* ButtonIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,11 +188,13 @@
 			isa = PBXGroup;
 			children = (
 				4890D30A1C0B75040055E08D /* QuartzCore.framework */,
-				481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */,
+				48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */,
 				48DA8FB11C07C72500D5A4C7 /* Colorblind Goggles */,
 				48DA8FC61C07C72500D5A4C7 /* Colorblind GogglesTests */,
 				48DA8FD11C07C72500D5A4C7 /* Colorblind GogglesUITests */,
 				48DA8FB01C07C72400D5A4C7 /* Products */,
+				CCBBAE1E6269CC0C826DCCA1 /* Pods */,
+				F84FFA4A211D32E47204E91E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -221,14 +222,11 @@
 				48DA8FB91C07C72500D5A4C7 /* Assets.xcassets */,
 				48DA8FBE1C07C72500D5A4C7 /* Info.plist */,
 				48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */,
-				48DA8FE41C07D67100D5A4C7 /* UIImageExtension.swift */,
 				481968BF1C08BDEF0058F708 /* Protanopia.fsh */,
 				481968C11C08C5850058F708 /* Deuteranopia.fsh */,
 				481968C31C08C5930058F708 /* Tritanopia.fsh */,
 				481968C51C08C5AD0058F708 /* Mono.fsh */,
 				481968C71C08C9790058F708 /* Normal.fsh */,
-				4819691C1C0938810058F708 /* MultiSelectSegmentedControl.h */,
-				4819691A1C09385A0058F708 /* MultiSelectSegmentedControl.m */,
 				481969191C09385A0058F708 /* Colorblind Goggles-Bridging-Header.h */,
 				4890D3051C0B74BD0055E08D /* UIView+Genie.h */,
 				4890D3081C0B74DC0055E08D /* UIView+Genie.m */,
@@ -256,6 +254,38 @@
 			path = "Colorblind GogglesUITests";
 			sourceTree = "<group>";
 		};
+		48FACEE82539DFD5002808AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48FACEEE2539DFD5002808AC /* libGPUImage.a */,
+				48FACEF02539DFD5002808AC /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCBBAE1E6269CC0C826DCCA1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9613D86FD828D136F572DACC /* Pods-Colorblind Goggles.debug.xcconfig */,
+				F29927CB8EA930B68C856D1D /* Pods-Colorblind Goggles.release.xcconfig */,
+				11C2F230AA3254054D4F2AFF /* Pods-Colorblind Goggles-Colorblind GogglesUITests.debug.xcconfig */,
+				3CC05A9614907E2BF27E4405 /* Pods-Colorblind Goggles-Colorblind GogglesUITests.release.xcconfig */,
+				8A8E0EF092751A46C824F119 /* Pods-Colorblind GogglesTests.debug.xcconfig */,
+				C2B9A182D3477910A8EDAD56 /* Pods-Colorblind GogglesTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F84FFA4A211D32E47204E91E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				819469F7B459362832F6BC2B /* Pods_Colorblind_Goggles.framework */,
+				F017D6F67574E5AAF044CBEF /* Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework */,
+				2EB25C90B72906D11FF70FBD /* Pods_Colorblind_GogglesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,15 +293,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48DA8FD71C07C72500D5A4C7 /* Build configuration list for PBXNativeTarget "Colorblind Goggles" */;
 			buildPhases = (
+				069774B2CAD3F8BF463EFF4D /* [CP] Check Pods Manifest.lock */,
 				48DA8FAB1C07C72400D5A4C7 /* Sources */,
 				48DA8FAC1C07C72400D5A4C7 /* Frameworks */,
 				48DA8FAD1C07C72400D5A4C7 /* Resources */,
 				481968B91C08B5280058F708 /* CopyFiles */,
+				335A7AFCF360132CAACF674E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				481968B71C08B4F50058F708 /* PBXTargetDependency */,
+				48FACEF72539DFED002808AC /* PBXTargetDependency */,
 			);
 			name = "Colorblind Goggles";
 			productName = "Colorblind Goggles";
@@ -282,6 +314,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48DA8FDA1C07C72500D5A4C7 /* Build configuration list for PBXNativeTarget "Colorblind GogglesTests" */;
 			buildPhases = (
+				C941074E97A6BC0EF79C5240 /* [CP] Check Pods Manifest.lock */,
 				48DA8FBF1C07C72500D5A4C7 /* Sources */,
 				48DA8FC01C07C72500D5A4C7 /* Frameworks */,
 				48DA8FC11C07C72500D5A4C7 /* Resources */,
@@ -300,9 +333,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48DA8FDD1C07C72500D5A4C7 /* Build configuration list for PBXNativeTarget "Colorblind GogglesUITests" */;
 			buildPhases = (
+				EAFC83244CEC03190CFE6FBF /* [CP] Check Pods Manifest.lock */,
 				48DA8FCA1C07C72500D5A4C7 /* Sources */,
 				48DA8FCB1C07C72500D5A4C7 /* Frameworks */,
 				48DA8FCC1C07C72500D5A4C7 /* Resources */,
+				BE90B9B0B456423B97C3149F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,7 +356,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Edmund Dipple";
 				TargetAttributes = {
 					48DA8FAE1C07C72400D5A4C7 = {
@@ -340,7 +375,7 @@
 			};
 			buildConfigurationList = 48DA8FAA1C07C72400D5A4C7 /* Build configuration list for PBXProject "Colorblind Goggles" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -351,8 +386,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 481968AD1C08B48B0058F708 /* Products */;
-					ProjectRef = 481968AC1C08B48B0058F708 /* GPUImage.xcodeproj */;
+					ProductGroup = 48FACEE82539DFD5002808AC /* Products */;
+					ProjectRef = 48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -365,18 +400,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		481968B31C08B48B0058F708 /* libGPUImage.a */ = {
+		48FACEEE2539DFD5002808AC /* libGPUImage.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libGPUImage.a;
-			remoteRef = 481968B21C08B48B0058F708 /* PBXContainerItemProxy */;
+			remoteRef = 48FACEED2539DFD5002808AC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		481968B51C08B48B0058F708 /* GPUImage.framework */ = {
+		48FACEF02539DFD5002808AC /* GPUImage.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = GPUImage.framework;
-			remoteRef = 481968B41C08B48B0058F708 /* PBXContainerItemProxy */;
+			remoteRef = 48FACEEF2539DFD5002808AC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -422,18 +457,125 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		069774B2CAD3F8BF463EFF4D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Colorblind Goggles-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		335A7AFCF360132CAACF674E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Colorblind Goggles/Pods-Colorblind Goggles-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MultiSelectSegmentedControl/MultiSelectSegmentedControl.framework",
+				"${BUILT_PRODUCTS_DIR}/SweeterSwift/SweeterSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiSelectSegmentedControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SweeterSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Colorblind Goggles/Pods-Colorblind Goggles-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE90B9B0B456423B97C3149F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Colorblind Goggles-Colorblind GogglesUITests/Pods-Colorblind Goggles-Colorblind GogglesUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MultiSelectSegmentedControl/MultiSelectSegmentedControl.framework",
+				"${BUILT_PRODUCTS_DIR}/SweeterSwift/SweeterSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiSelectSegmentedControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SweeterSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Colorblind Goggles-Colorblind GogglesUITests/Pods-Colorblind Goggles-Colorblind GogglesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C941074E97A6BC0EF79C5240 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Colorblind GogglesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAFC83244CEC03190CFE6FBF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Colorblind Goggles-Colorblind GogglesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		48DA8FAB1C07C72400D5A4C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4819691B1C09385A0058F708 /* MultiSelectSegmentedControl.m in Sources */,
 				48DA8FB51C07C72500D5A4C7 /* ViewController.swift in Sources */,
 				48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */,
 				4890D3091C0B74DC0055E08D /* UIView+Genie.m in Sources */,
 				48DA8FB31C07C72500D5A4C7 /* AppDelegate.swift in Sources */,
 				4879EA1D1C0E3CD800A25E4F /* AboutController.swift in Sources */,
-				48DA8FE51C07D67100D5A4C7 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,11 +598,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		481968B71C08B4F50058F708 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GPUImageFramework;
-			targetProxy = 481968B61C08B4F50058F708 /* PBXContainerItemProxy */;
-		};
 		48DA8FC51C07C72500D5A4C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 48DA8FAE1C07C72400D5A4C7 /* Colorblind Goggles */;
@@ -470,6 +607,11 @@
 			isa = PBXTargetDependency;
 			target = 48DA8FAE1C07C72400D5A4C7 /* Colorblind Goggles */;
 			targetProxy = 48DA8FCF1C07C72500D5A4C7 /* PBXContainerItemProxy */;
+		};
+		48FACEF72539DFED002808AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = 48FACEF62539DFED002808AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -497,17 +639,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -529,11 +683,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -542,17 +697,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -568,9 +735,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -578,12 +747,13 @@
 		};
 		48DA8FD81C07C72500D5A4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9613D86FD828D136F572DACC /* Pods-Colorblind Goggles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Colorblind Goggles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-Goggles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -595,12 +765,13 @@
 		};
 		48DA8FD91C07C72500D5A4C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F29927CB8EA930B68C856D1D /* Pods-Colorblind Goggles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Colorblind Goggles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.elmund.Colorblind-Goggles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -611,6 +782,7 @@
 		};
 		48DA8FDB1C07C72500D5A4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A8E0EF092751A46C824F119 /* Pods-Colorblind GogglesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Colorblind GogglesTests/Info.plist";
@@ -623,6 +795,7 @@
 		};
 		48DA8FDC1C07C72500D5A4C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2B9A182D3477910A8EDAD56 /* Pods-Colorblind GogglesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Colorblind GogglesTests/Info.plist";
@@ -635,6 +808,7 @@
 		};
 		48DA8FDE1C07C72500D5A4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11C2F230AA3254054D4F2AFF /* Pods-Colorblind Goggles-Colorblind GogglesUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Colorblind GogglesUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -647,6 +821,7 @@
 		};
 		48DA8FDF1C07C72500D5A4C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CC05A9614907E2BF27E4405 /* Pods-Colorblind Goggles-Colorblind GogglesUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Colorblind GogglesUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

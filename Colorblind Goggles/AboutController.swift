@@ -12,7 +12,7 @@ class AboutController: UIViewController,UIWebViewDelegate  {
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var closeButton: UIBarButtonItem!
-    @IBAction func clickedCloseButton(sender: AnyObject) {
+    @IBAction func clickedCloseButton(sender: Any) {
         self.dismiss(animated: true, completion: {})
     }
     

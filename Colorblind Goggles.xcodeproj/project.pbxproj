@@ -34,6 +34,8 @@
 		48DA8FD31C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */; };
 		48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */; };
 		48FACF032539EF1F002808AC /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 48FACEF02539DFD5002808AC /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		48FACF67253CD38F002808AC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48FACF64253CD38F002808AC /* Settings.bundle */; };
+		48FACF6B253CD3BC002808AC /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 48FACF6A253CD3BB002808AC /* Resources */; };
 		95E3463B8C5F1D12550D3136 /* Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F017D6F67574E5AAF044CBEF /* Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework */; };
 		E6DEE6323A9EFED1C7CE9CB2 /* Pods_Colorblind_Goggles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819469F7B459362832F6BC2B /* Pods_Colorblind_Goggles.framework */; };
 /* End PBXBuildFile section */
@@ -127,6 +129,8 @@
 		48DA8FD41C07C72500D5A4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorblindFilter.swift; sourceTree = "<group>"; };
 		48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		48FACF64253CD38F002808AC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		48FACF6A253CD3BB002808AC /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		819469F7B459362832F6BC2B /* Pods_Colorblind_Goggles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Colorblind_Goggles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8E0EF092751A46C824F119 /* Pods-Colorblind GogglesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorblind GogglesTests.debug.xcconfig"; path = "Target Support Files/Pods-Colorblind GogglesTests/Pods-Colorblind GogglesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9613D86FD828D136F572DACC /* Pods-Colorblind Goggles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorblind Goggles.debug.xcconfig"; path = "Target Support Files/Pods-Colorblind Goggles/Pods-Colorblind Goggles.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 		48DA8FB11C07C72500D5A4C7 /* Colorblind Goggles */ = {
 			isa = PBXGroup;
 			children = (
+				48FACF6A253CD3BB002808AC /* Resources */,
+				48FACF64253CD38F002808AC /* Settings.bundle */,
 				4879EA221C0E581400A25E4F /* test.jpg */,
 				4890D3181C0E00120055E08D /* LaunchLogo.png */,
 				4890D3131C0CFA9E0055E08D /* AppIcons */,
@@ -436,7 +442,9 @@
 				481968C61C08C5AD0058F708 /* Mono.fsh in Resources */,
 				4890D3161C0CFA9E0055E08D /* Icon-120.png in Resources */,
 				481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */,
+				48FACF6B253CD3BC002808AC /* Resources in Resources */,
 				481968C01C08BDEF0058F708 /* Protanopia.fsh in Resources */,
+				48FACF67253CD38F002808AC /* Settings.bundle in Resources */,
 				4890D3101C0B7E620055E08D /* Compact Camera-100.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

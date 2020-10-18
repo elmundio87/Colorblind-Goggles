@@ -1,3 +1,4 @@
+*.xcuserstate
 Colorblind Goggles.xcodeproj/project.xcworkspace/xcshareddata/
 
 # Created by https://www.toptal.com/developers/gitignore/api/cocoapods,swift,osx

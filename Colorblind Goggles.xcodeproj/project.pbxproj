@@ -13,6 +13,7 @@
 		481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C31C08C5930058F708 /* Tritanopia.fsh */; };
 		481968C61C08C5AD0058F708 /* Mono.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C51C08C5AD0058F708 /* Mono.fsh */; };
 		481968C81C08C9790058F708 /* Normal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C71C08C9790058F708 /* Normal.fsh */; };
+		485ACBE7253E220600970633 /* blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 485ACBE6253E220600970633 /* blur.png */; };
 		4879EA1D1C0E3CD800A25E4F /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4879EA1C1C0E3CD800A25E4F /* AboutController.swift */; };
 		4879EA1F1C0E3F1600A25E4F /* Info-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4879EA1E1C0E3F1600A25E4F /* Info-100.png */; };
 		4879EA211C0E475A00A25E4F /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = 4879EA201C0E475A00A25E4F /* info.html */; };
@@ -104,6 +105,7 @@
 		485ACBE1253E196300970633 /* BCGenieEffect.license */ = {isa = PBXFileReference; lastKnownFileType = text; path = BCGenieEffect.license; sourceTree = "<group>"; };
 		485ACBE2253E196300970633 /* GPUImage.license */ = {isa = PBXFileReference; lastKnownFileType = text; path = GPUImage.license; sourceTree = "<group>"; };
 		485ACBE3253E196300970633 /* licenses.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = licenses.py; sourceTree = "<group>"; };
+		485ACBE6253E220600970633 /* blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blur.png; sourceTree = "<group>"; };
 		4879EA1C1C0E3CD800A25E4F /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		4879EA1E1C0E3F1600A25E4F /* Info-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-100.png"; sourceTree = "<group>"; };
 		4879EA201C0E475A00A25E4F /* info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = info.html; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		48DA8FB11C07C72500D5A4C7 /* Colorblind Goggles */ = {
 			isa = PBXGroup;
 			children = (
+				485ACBE6253E220600970633 /* blur.png */,
 				485ACBDF253E196300970633 /* Licenses */,
 				48FACF64253CD38F002808AC /* Settings.bundle */,
 				4879EA221C0E581400A25E4F /* test.jpg */,
@@ -452,6 +455,7 @@
 				4879EA211C0E475A00A25E4F /* info.html in Resources */,
 				481968C81C08C9790058F708 /* Normal.fsh in Resources */,
 				4890D3191C0E00120055E08D /* LaunchLogo.png in Resources */,
+				485ACBE7253E220600970633 /* blur.png in Resources */,
 				481968C61C08C5AD0058F708 /* Mono.fsh in Resources */,
 				4890D3161C0CFA9E0055E08D /* Icon-120.png in Resources */,
 				481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */,

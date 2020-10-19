@@ -7,6 +7,7 @@ target 'Colorblind Goggles' do
 
   # Pods for Colorblind Goggles
   pod 'MultiSelectSegmentedControl'
+  pod 'BBMetalImage'
 
   target 'Colorblind GogglesTests' do
     inherit! :search_paths

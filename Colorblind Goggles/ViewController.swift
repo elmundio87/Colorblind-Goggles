@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import Photos
 import GPUImage
+import BBMetalImage
 import MultiSelectSegmentedControl
 
 struct FilterStruct {

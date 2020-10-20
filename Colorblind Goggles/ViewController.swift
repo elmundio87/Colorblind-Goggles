@@ -30,7 +30,7 @@ struct FilterStruct {
         self.view = GPUImageView()
         self.view.backgroundColor = UIColor.black
         self.filter.addTarget(self.view)
-        self.label = UILabel(frame: CGRect(x:20.0,y:0.0,width:200.0,height:50.0))
+        self.label = UILabel(frame: CGRect(x:20.0,y:5.0,width:200.0,height:50.0))
         self.setLabelTitle(title: self.name)
         self.view.addSubview(label)
         self.view.fillMode = GPUImageFillModeType.preserveAspectRatioAndFill
@@ -140,7 +140,6 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
 
         
     }
-    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: nil) { _ in UIView.setAnimationsEnabled(true) }

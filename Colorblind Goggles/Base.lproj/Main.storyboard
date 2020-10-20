@@ -72,7 +72,7 @@
                                                     <real key="value" value="2"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                                    <real key="value" value="2"/>
+                                                    <real key="value" value="5"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isVerticalSegmentContents" value="NO"/>
@@ -85,15 +85,15 @@
                                     <constraints>
                                         <constraint firstItem="NRt-GK-3DO" firstAttribute="leading" secondItem="P1V-dV-pgO" secondAttribute="leading" constant="15" id="6DY-1q-3JB"/>
                                         <constraint firstAttribute="trailing" secondItem="NRt-GK-3DO" secondAttribute="trailing" constant="130" id="7rp-Io-vyJ"/>
-                                        <constraint firstItem="xVd-ig-AkX" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="9cb-Uc-MBU"/>
-                                        <constraint firstItem="NRt-GK-3DO" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="kFa-DH-0D8"/>
                                         <constraint firstItem="xVd-ig-AkX" firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="leading" constant="-20" id="vDO-Ke-Hct"/>
-                                        <constraint firstItem="34L-fQ-V75" firstAttribute="centerY" secondItem="P1V-dV-pgO" secondAttribute="centerY" id="wo2-lV-paE"/>
                                         <constraint firstAttribute="trailing" secondItem="34L-fQ-V75" secondAttribute="trailing" constant="20" id="xfw-yo-aCj"/>
                                     </constraints>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="siV-9i-ped"/>
+                                    <constraint firstItem="NRt-GK-3DO" firstAttribute="top" secondItem="aQG-Ww-O1H" secondAttribute="top" constant="17" id="Xfg-tC-tgU"/>
+                                    <constraint firstItem="xVd-ig-AkX" firstAttribute="top" secondItem="aQG-Ww-O1H" secondAttribute="top" constant="15" id="a86-2p-mH5"/>
+                                    <constraint firstItem="34L-fQ-V75" firstAttribute="top" secondItem="aQG-Ww-O1H" secondAttribute="top" constant="15" id="nZI-0W-Lbk"/>
+                                    <constraint firstAttribute="height" constant="120" id="siV-9i-ped"/>
                                 </constraints>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
@@ -112,14 +112,13 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9e0-Y8-wHz"/>
+                            <constraint firstItem="aQG-Ww-O1H" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="MJc-Ml-3MK"/>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Np7-CQ-ITu"/>
                             <constraint firstItem="vuP-30-M4I" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Pmr-C1-mDF"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aQG-Ww-O1H" secondAttribute="bottom" id="T66-vU-ZFH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aQG-Ww-O1H" secondAttribute="bottom" constant="-50" id="T66-vU-ZFH"/>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="WFJ-s9-bBl"/>
                             <constraint firstItem="2LV-FF-tRN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b39-Mp-jXI"/>
-                            <constraint firstItem="aQG-Ww-O1H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="dcD-ch-9Sn"/>
                             <constraint firstItem="vuP-30-M4I" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" constant="-10" id="e56-nh-Nmw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aQG-Ww-O1H" secondAttribute="trailing" constant="-20" id="eob-7o-qUd"/>
                             <constraint firstItem="2LV-FF-tRN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mKX-12-yah"/>
                             <constraint firstItem="Txe-IU-73X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xmG-Y1-xCM"/>
                             <constraint firstItem="aQG-Ww-O1H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ylu-6i-6vS"/>

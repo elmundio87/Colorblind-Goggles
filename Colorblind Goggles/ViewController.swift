@@ -87,7 +87,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
         FilterStruct(name:"Monochromatic", shortName: "Mono", shader: "Mono")]
     
     enum ViewState: Int {
-        case ViewAll = 0, BottomBarHidden, FilterLabelsHidden
+        case ViewAll = 0, FilterLabelsHidden, BottomBarHidden
     }
     
     override func viewDidLoad() {

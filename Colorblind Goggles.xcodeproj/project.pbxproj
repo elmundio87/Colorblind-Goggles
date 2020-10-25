@@ -13,6 +13,7 @@
 		481968C41C08C5930058F708 /* Tritanopia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C31C08C5930058F708 /* Tritanopia.fsh */; };
 		481968C61C08C5AD0058F708 /* Mono.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C51C08C5AD0058F708 /* Mono.fsh */; };
 		481968C81C08C9790058F708 /* Normal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 481968C71C08C9790058F708 /* Normal.fsh */; };
+		485A21AD25456A6C00EFA307 /* ColourBlindFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A21AC25456A6C00EFA307 /* ColourBlindFilter.swift */; };
 		485ACBE7253E220600970633 /* blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 485ACBE6253E220600970633 /* blur.png */; };
 		485ACC00253E355800970633 /* Protanopia.metal in Sources */ = {isa = PBXBuildFile; fileRef = 485ACBFF253E355800970633 /* Protanopia.metal */; };
 		485ACC04253E356B00970633 /* Deuteranopia.metal in Sources */ = {isa = PBXBuildFile; fileRef = 485ACC03253E356B00970633 /* Deuteranopia.metal */; };
@@ -39,7 +40,6 @@
 		48DA8FC81C07C72500D5A4C7 /* Colorblind_GogglesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FC71C07C72500D5A4C7 /* Colorblind_GogglesTests.swift */; };
 		48DA8FD31C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FD21C07C72500D5A4C7 /* Colorblind_GogglesUITests.swift */; };
 		48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DA8FE01C07C75600D5A4C7 /* ColorblindFilter.swift */; };
-		48FACF032539EF1F002808AC /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 48FACEF02539DFD5002808AC /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48FACF67253CD38F002808AC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48FACF64253CD38F002808AC /* Settings.bundle */; };
 		95E3463B8C5F1D12550D3136 /* Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F017D6F67574E5AAF044CBEF /* Pods_Colorblind_Goggles_Colorblind_GogglesUITests.framework */; };
 		E6DEE6323A9EFED1C7CE9CB2 /* Pods_Colorblind_Goggles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819469F7B459362832F6BC2B /* Pods_Colorblind_Goggles.framework */; };
@@ -74,27 +74,7 @@
 			remoteGlobalIDString = BCE209E51943F20C002FEED8;
 			remoteInfo = GPUImageFramework;
 		};
-		48FACEF62539DFED002808AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 48FACEE72539DFD5002808AC /* GPUImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCE209E41943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		481968B91C08B5280058F708 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				48FACF032539EF1F002808AC /* GPUImage.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		11C2F230AA3254054D4F2AFF /* Pods-Colorblind Goggles-Colorblind GogglesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorblind Goggles-Colorblind GogglesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Colorblind Goggles-Colorblind GogglesUITests/Pods-Colorblind Goggles-Colorblind GogglesUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +86,7 @@
 		481968C51C08C5AD0058F708 /* Mono.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Mono.fsh; sourceTree = "<group>"; };
 		481968C71C08C9790058F708 /* Normal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Normal.fsh; sourceTree = "<group>"; };
 		481969191C09385A0058F708 /* Colorblind Goggles-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Colorblind Goggles-Bridging-Header.h"; sourceTree = "<group>"; };
+		485A21AC25456A6C00EFA307 /* ColourBlindFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourBlindFilter.swift; sourceTree = "<group>"; };
 		485ACBE0253E196300970633 /* MultiSelectSegmentedControl.license */ = {isa = PBXFileReference; lastKnownFileType = text; path = MultiSelectSegmentedControl.license; sourceTree = "<group>"; };
 		485ACBE1253E196300970633 /* BCGenieEffect.license */ = {isa = PBXFileReference; lastKnownFileType = text; path = BCGenieEffect.license; sourceTree = "<group>"; };
 		485ACBE2253E196300970633 /* GPUImage.license */ = {isa = PBXFileReference; lastKnownFileType = text; path = GPUImage.license; sourceTree = "<group>"; };
@@ -196,11 +177,12 @@
 		485ACBFC253E352F00970633 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
-				485ACBFF253E355800970633 /* Protanopia.metal */,
 				485ACC03253E356B00970633 /* Deuteranopia.metal */,
-				485ACC07253E357800970633 /* Tritanopia.metal */,
 				485ACC0B253E358D00970633 /* Mono.metal */,
 				485ACC0F253E359800970633 /* Normal.metal */,
+				485ACBFF253E355800970633 /* Protanopia.metal */,
+				485ACC07253E357800970633 /* Tritanopia.metal */,
+				485A21AC25456A6C00EFA307 /* ColourBlindFilter.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -342,13 +324,11 @@
 				48DA8FAB1C07C72400D5A4C7 /* Sources */,
 				48DA8FAC1C07C72400D5A4C7 /* Frameworks */,
 				48DA8FAD1C07C72400D5A4C7 /* Resources */,
-				481968B91C08B5280058F708 /* CopyFiles */,
 				335A7AFCF360132CAACF674E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				48FACEF72539DFED002808AC /* PBXTargetDependency */,
 			);
 			name = "Colorblind Goggles";
 			productName = "Colorblind Goggles";
@@ -626,6 +606,7 @@
 				48DA8FB51C07C72500D5A4C7 /* ViewController.swift in Sources */,
 				485ACC04253E356B00970633 /* Deuteranopia.metal in Sources */,
 				48DA8FE11C07C75600D5A4C7 /* ColorblindFilter.swift in Sources */,
+				485A21AD25456A6C00EFA307 /* ColourBlindFilter.swift in Sources */,
 				485ACC00253E355800970633 /* Protanopia.metal in Sources */,
 				485ACC08253E357800970633 /* Tritanopia.metal in Sources */,
 				4890D3091C0B74DC0055E08D /* UIView+Genie.m in Sources */,
@@ -663,11 +644,6 @@
 			isa = PBXTargetDependency;
 			target = 48DA8FAE1C07C72400D5A4C7 /* Colorblind Goggles */;
 			targetProxy = 48DA8FCF1C07C72500D5A4C7 /* PBXContainerItemProxy */;
-		};
-		48FACEF72539DFED002808AC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GPUImageFramework;
-			targetProxy = 48FACEF62539DFED002808AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

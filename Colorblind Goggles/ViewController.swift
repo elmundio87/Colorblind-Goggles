@@ -17,8 +17,8 @@ struct FilterStruct {
     var name: String
     var shortName: String
     var shader: String
-    var filter: GPUImageFilter
-    var view: GPUImageView
+    var filter: BBMetalBaseFilter
+    var view: BBMetalView
     var hidden: Bool
     var label: UILabel
     
@@ -27,14 +27,13 @@ struct FilterStruct {
         self.name = name
         self.shortName = shortName
         self.shader = shader
-        self.filter = GPUImageFilter(fragmentShaderFromFile: self.shader)
-        self.view = GPUImageView()
+        self.filter = ColourBlindFilter(shader: shader)
+        self.view = BBMetalView()
         self.view.backgroundColor = UIColor.black
-        self.filter.addTarget(self.view)
         self.label = UILabel(frame: CGRect(x:20.0,y:20.0,width:200.0,height:50.0))
         self.setLabelTitle(title: self.name)
         self.view.addSubview(label)
-        self.view.fillMode = GPUImageFillModeType.preserveAspectRatioAndFill
+        self.filter.add(consumer: self.view)
     }
     
     mutating func setHidden(hidden: Bool){
@@ -67,8 +66,8 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     }
     
     var activeFilters:[String] = ["Norm"]
-    var videoCamera:GPUImageStillCamera?
-    var stillImageSource:GPUImagePicture?
+    var videoCamera: BBMetalCamera!
+//    var stillImageSource:GPUImagePicture?
     var cameraPosition: AVCaptureDevice.Position = .back
     var percent = 100
     var lastLocation:CGPoint = CGPoint(x:0, y:0)
@@ -305,30 +304,30 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     
     func cameraMagic(position: AVCaptureDevice.Position, orientation: UIInterfaceOrientation){
-        videoCamera = GPUImageStillCamera(sessionPreset: AVCaptureSession.Preset.high.rawValue, cameraPosition: position)
+        videoCamera = BBMetalCamera(sessionPreset: .hd1920x1080)
         
         if(videoCamera != nil){
-            videoCamera!.outputImageOrientation = orientation
         
-            videoCamera?.startCapture()
+            videoCamera?.start()
 
             for index in 0...(filterList.count - 1){
-                videoCamera?.addTarget(self.filterList[index].filter)
-                self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
+                videoCamera.add(consumer: self.filterList[index].filter)
+                self.filterList[index].filter.add(consumer: self.filterList[index].view)
+//                self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             }
         }else{
 
-            let inputImage:UIImage = UIImage(imageLiteralResourceName: "test.jpg")
-            stillImageSource = GPUImagePicture(image: inputImage)
-            stillImageSource?.useNextFrameForImageCapture()
-
-
-            for index in 0...(filterList.count - 1){
-                stillImageSource?.addTarget(self.filterList[index].filter)
-                self.filterList[index].filter.addTarget(self.filterList[index].view)
-                self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
-            }
-            stillImageSource?.processImage()
+//            let inputImage:UIImage = UIImage(imageLiteralResourceName: "test.jpg")
+//            stillImageSource = GPUImagePicture(image: inputImage)
+//            stillImageSource?.useNextFrameForImageCapture()
+//
+//
+//            for index in 0...(filterList.count - 1){
+//                stillImageSource?.addTarget(self.filterList[index].filter)
+//                self.filterList[index].filter.addTarget(self.filterList[index].view)
+//                self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
+//            }
+//            stillImageSource?.processImage()
 
         }
         
@@ -352,7 +351,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     
     @IBAction func flipButtonTouchUpInside(_ sender: Any) {
         toggleCameraPosition()
-        videoCamera?.stopCapture()
+        videoCamera?.stop()
         cameraMagic(position: cameraPosition)
     }
     
@@ -397,7 +396,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
            
         for index in 0...(filterList.count - 1){
             
-            self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
+//            self.filterList[index].filter.setFloat(Float(percent), forUniformName: "factor")
             if(percent < 100){
                 self.filterList[index].setLabelTitle(title: self.filterList[index].name + " (" + String(percent) + "%)")
             }else{
@@ -409,7 +408,7 @@ class ViewController: UIViewController, MultiSelectSegmentedControlDelegate  {
     @objc func orientationChanged(){
         fitViewsOntoScreen()
         let orientation = UIApplication.shared.statusBarOrientation
-        videoCamera?.outputImageOrientation = orientation
+//        videoCamera?.outputImageOrientation = orientation
     }
 
 }
